@@ -1,0 +1,94 @@
+<body>
+    <div class="container">
+      <h1 class="form-title">Ajouter une formation</h1>
+      <form action="#">
+        <div class="main-user-info">
+          <div class="user-input-box">
+            <label for="fullName">Thème formation</label>
+            <input type="text"
+                    id="fullName"
+                    name="fullName"
+                    placeholder="Thème formation"
+                    [(ngModel)]="titre" name="titre"/>
+          </div>
+          <div class="user-input-box">
+            <label for="username">Description</label>
+            <input type="text"
+                    id="username"
+                    name="username"
+                    placeholder="Description"
+                    [(ngModel)]="description" name="description"/>
+          </div>
+          <div class="user-input-box">
+            <label for="email">Email</label>
+            <input type="email"
+                    id="email"
+                    name="email"
+                    placeholder="Enter Email"/>
+          </div>
+          <div class="user-input-box">
+            <label for="phoneNumber">Contact</label>
+            <input type="text"
+                    id="phoneNumber"
+                    name="phoneNumber"
+                    placeholder="Contact"
+                    [(ngModel)]="contact" name="contact"/>
+          </div>
+          <div class="user-input-box">
+            <label for="phoneNumber">Lieu</label>
+            <input type="text"
+                    id="phoneNumber"
+                    name="phoneNumber"
+                    placeholder="Lieu"
+                    [(ngModel)]="lieu" name="lieu"/>
+          </div>
+          
+          <div class="user-input-box">
+            <label for="fullName">Heure</label>
+            <input type="text"
+                    id="fullName"
+                    name="fullName"
+                    placeholder="Heure"
+                    [(ngModel)]="heure" name="heure"/>
+          </div>
+          <div class="user-input-box">
+            <label for="fullName">Date debut</label>
+            <input type="text"
+                    id="fullName"
+                    name="fullName"
+                    placeholder="Date debut"
+                    [(ngModel)]="datedebut" name="datedebut"/>
+          </div>
+          <div class="user-input-box">
+            <label for="fullName">Date fin</label>
+            <input type="text"
+                    id="fullName"
+                    name="fullName"
+                    placeholder="Date fin"
+                    [(ngModel)]="datefin" name="datefin"/>
+          </div>
+
+          <div class="user-input-box">
+            <label for="fullName">Formateur</label>
+          <form style="">
+            <select style="width:150px; height: 30px; margin-top: 3px;" [(ngModel)]="nomformateur" [ngModelOptions]="{standalone: true}">
+              <!-- <option value="Sexe">Formateur</option> -->
+              <option value="{{affiche.username}}"  *ngFor="let affiche of formateurs" >{{affiche.username}}</option>
+              <!-- <option value="0">Homme</option> -->
+            </select>
+          </form>
+        </div>
+
+        <div class="user-input-box">
+          <form action=""  style="margin-top: 3%; ">
+            <input type="file" name="image" (change)="recupererImage($event)"><br><br>
+          </form>
+        </div>
+        </div>
+
+        <div class="form-submit-btn" (click)="Ajoutformation()">
+          <input type="submit" value="Ajouter formation">
+        </div>
+      </form>
+    </div>
+  </body>

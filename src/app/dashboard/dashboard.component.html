@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Admin Dashboard - WebTech Gyan</title>
+
+   <!-- iconscout cdn path -->
+   <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
+</head>
+<body>
+   <div class="sidebar" id="sidebar">
+      <div class="logo">
+         <h2>
+            <i class="uil uil-apple-alt"></i>
+            Iphone
+         </h2>
+      </div>
+
+      <div class="sidebar-menu">
+         <ul>
+            <li>
+               <i class="uil uil-dashboard"></i>
+               <span>Dashboard</span>
+            </li>
+            <li routerLink="/AjoutFormat">
+               <i class="uil uil-clipboard-notes"></i>
+               <span>Ajout Formation</span>
+            </li>
+            <li>
+               <i class="uil uil-chart-bar"></i>
+               <span>Charts</span>
+            </li>
+            <li>
+               <i class="uil uil-calendar-alt"></i>
+               <span>Calendar</span>
+            </li>
+            <li>
+               <i class="uil uil-shopping-bag"></i>
+               <span>Orders</span>
+            </li>
+            <li>
+               <i class="uil uil-clipboard-notes"></i>
+               <span>Tasks</span>
+            </li>
+            <li>
+               <i class="uil uil-user-circle"></i>
+               <span>Account</span>
+            </li>
+            <li>
+               <i class="uil uil-signin"></i>
+               <span>Logout</span>
+            </li>
+         </ul>
+      </div>
+   </div>
+
+   <div class="main-content" id="main-content">
+      <header class="flex">
+         <h2>
+            <i class="uil uil-bars" id="menu-icon"></i>
+            Dashboard
+         </h2>
+
+         <div class="search-box">
+            <i class="uil uil-search"></i>
+            <input type="text" placeholder="Search Here...">
+         </div>
+
+         <div class="admin-box flex" >
+            <img src="images/user.jpeg" width="30px" height="30px">
+            <div>
+               <h4>Naseem Khan</h4>
+               <small>Admin</small>
+            </div>
+         </div>
+      </header>
+
+      <!-- Statistique::::::::::::::::::::::: -->
+      <main>
+         <div class="cards">
+            <div class="single-card" >
+               <div>
+                  <span>Formateurs</span>
+                  <h2>{{formateur.length}}</h2>
+               </div>
+               <i class="fa-solid fa-person-dots-from-line"></i>
+            </div>
+            <div class="single-card">
+               <div>
+                  <span> Auditeurs</span>
+                  <h2>{{auditeur.length}}</h2>
+               </div>
+               <i class="fa-solid fa-graduation-cap"></i>
+            </div>
+            <div class="single-card">
+               <div>
+                  <span>Réalisations</span>
+                  <h2>{{formationterminer.length}}</h2>
+               </div>
+               <i class="fa-solid fa-check"></i>
+            </div>
+            <div class="single-card">
+               <div>
+                  <span>Encours</span>
+                  <h2>{{formationencours.length}}</h2>
+               </div>
+               <i class="fa-solid fa-spinner"></i>
+            </div>
+         </div>
+
+<!-- Formation encours et Formateurs:::::::::::::::::::: -->
+         <div class="wrapper flex">
+            <div class="projects">
+               <div class="card-header flex">
+                  <h3>Formations encours</h3>
+                  <button>See all <i class="uil uil-angle-right"></i></button>
+               </div>
+
+               <table>
+                <tr>
+                    <th>Titre</th>
+                    <th>Lieu</th>
+                    <th>Date Debut</th>
+                    <th>Status</th>
+                </tr>
+                
+                
+                <tr *ngFor="let encours of formationencours |paginate: { itemsPerPage:4, currentPage: p}" routerLink="/Detailformation" style="cursor:pointer" [routerLink]="['Detailformation', encours.idFormat]">
+                    <td>{{encours.titre}}</td>
+                    <td>{{encours.lieu}}</td>
+                    <td>{{encours.datedebut}}</td>
+                    <td>
+                        <form style="  padding-right: 20px;"> 
+                            <select style="width:80px;  height: 25px; margin-top: 3px; margin-bottom: 20px;">
+                              <option value="Sexe">Etat</option>
+                              <option value="ffff" >ddddddd</option>
+                            </select>
+                          </form>
+                    </td>
+                </tr>
+                <pagination-controls (pageChange)="p =$event"previousLabel="Précédent" nextLabel="Suivant" style="text-align: center; color: teal;"></pagination-controls>
+            </table>
+            </div>
+
+            <div class="customers">
+               <div class="card-header flex">
+                  <h3>Formateurs</h3>
+                  <button>Ajouter <i class="uil uil-angle-right"></i></button>
+               </div>
+
+               <table>  
+                  <tr class="flex" *ngFor="let format of formateur |paginate: { itemsPerPage:4, currentPage: p}">
+                        <td class="flex">
+                            <img src="/assets/images/{{format.photo}}" width="30px" height="30px" alt="">
+                            <div>
+                               <h5>{{format.username}}</h5>
+                               <small>{{format.profession}}</small>
+                            </div>
+                         </td>
+    
+                         <td>
+                            <i class="uil uil-user-circle"></i>
+                            <i class="uil uil-calender"></i>
+                            <i class="uil uil-phone-alt"></i>
+                         </td>
+                  </tr>
+                  <pagination-controls (pageChange)="p =$event"previousLabel="Précédent" nextLabel="Suivant" style="text-align: center; color: teal;"></pagination-controls>   
+               </table>
+            </div>
+
+         </div>
+
+         <!-- Formation Terminer et Auditeurs:::::::::::::::::::: -->
+         <div class="wrapper flex">
+            <div class="projects">
+               <div class="card-header flex">
+                  <h3>Formations Terminer</h3>
+                  <button>See all <i class="uil uil-angle-right"></i></button>
+               </div>
+
+               <table>
+                <tr>
+                    <th>Titre</th>
+                    <th>Lieu</th>
+                    <th>Date Fin</th>
+                    <th>Status</th>
+                </tr>
+                
+                
+                <tr *ngFor="let encours of formationterminer |paginate: { itemsPerPage:15, currentPage: p}">
+                    <td>{{encours.titre}}</td>
+                    <td>{{encours.lieu}}</td>
+                    <td>{{encours.datefin}}</td>
+                    <td>
+                        <form style="  padding-right: 20px;"> 
+                            <select style="width:80px;  height: 25px; margin-top: 3px; margin-bottom: 20px;">
+                              <option value="Sexe">Etat</option>
+                              <option value="ffff" >ddddddd</option>
+                            </select>
+                          </form>
+                    </td>
+                </tr>
+                <pagination-controls (pageChange)="p =$event"previousLabel="Précédent" nextLabel="Suivant" style="text-align: center; color: teal;"></pagination-controls>
+            </table>
+            </div>
+
+            <div class="customers">
+               <div class="card-header flex">
+                  <h3>Auditeurs</h3>
+                  <button>Ajouter <i class="uil uil-angle-right"></i></button>
+               </div>
+
+               <table>  
+                  <tr class="flex" *ngFor="let format of auditeur |paginate: { itemsPerPage:10, currentPage: p}">
+                        <td class="flex">
+                            <img src="/assets/images/{{format.photo}}" width="30px" height="30px" alt="">
+                            <div>
+                               <h5>{{format.username}}</h5>
+                               <small>{{format.profession}}</small>
+                            </div>
+                         </td>
+    
+                         <td>
+                            <i class="uil uil-user-circle"></i>
+                            <i class="uil uil-calender"></i>
+                            <i class="uil uil-phone-alt"></i>
+                         </td>
+                  </tr>
+                  <pagination-controls (pageChange)="p =$event"previousLabel="Précédent" nextLabel="Suivant" style="text-align: center; color: teal;"></pagination-controls>   
+               </table>
+            </div>
+
+         </div>
+      </main>
+   </div>
+
+   <script>
+      let sideBar = document.getElementById('sidebar');
+      let menuIcon = document.getElementById('menu-icon');
+      let mainContent = document.getElementById('main-content');
+
+      menuIcon.onclick = () => {
+         sideBar.classList.toggle('toggleMenu');
+         mainContent.classList.toggle('toggleContent');
+      }
+   </script>
+</body>
+</html>
