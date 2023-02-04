@@ -11,6 +11,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AjoutformationComponent } from './ajoutformation/ajoutformation.component';
 import { DetailformationComponent } from './detailformation/detailformation.component';
 import { DetailutilisateurComponent } from './detailutilisateur/detailutilisateur.component';
+import { AjoututilisateurComponent } from './ajoututilisateur/ajoututilisateur.component';
 
 
 @NgModule({
@@ -21,6 +22,7 @@ import { DetailutilisateurComponent } from './detailutilisateur/detailutilisateu
     AjoutformationComponent,
     DetailformationComponent,
     DetailutilisateurComponent,
+    AjoututilisateurComponent,
   ],
   imports: [
     BrowserModule,

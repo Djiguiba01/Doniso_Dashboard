@@ -1,0 +1,88 @@
+
+/* //Pour retirer la scrollbar */
+ion-content {
+  width: calc(100% + 22px);
+}
+
+/* //La barre en haut */
+ion-toolbar{
+  --background: teal;
+  color: #fff;
+  padding: 0;
+}
+
+/* //le titre de la barre */
+ion-title{
+  font-size: 15px;
+}
+
+
+/* //le logo de l'app */
+.logo{
+  height: 110px;
+  width: 100px;
+}
+
+
+/* //le conteneur de l'application */
+.conteneur-logo{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 25vh;
+}
+
+.input{
+  margin: auto;
+  display: flex;
+  justify-content: space-around;
+  flex-direction: column;
+  width: 75%;
+  height: 43px;
+}
+
+/* //le conteneur de mon formullaire */
+.formulaire{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 30px;
+  margin-left: -6%;
+}
+
+/* //le champ numero de telephone */
+.telephone-input{
+  border: 1px solid rgba(0, 0, 0, 0.12);
+}
+
+/* //le button envoyer */
+.envoyer-input{
+  --background: teal;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 15px;
+  width: 75%;
+}
+
+.obligatoire{
+  color: red;
+}
+
+.input{
+  font-weight: bold;
+}
+.conteneur-submit{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.connexion{
+  color: teal;
+  font-weight: bold;
+}
+
+.connexion:hover{
+  cursor: pointer;
+}

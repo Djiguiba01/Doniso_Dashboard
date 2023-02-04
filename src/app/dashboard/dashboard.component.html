@@ -23,12 +23,12 @@
                <span>Dashboard</span>
             </li>
             <li routerLink="/AjoutFormat">
-               <i class="uil uil-clipboard-notes"></i>
+               <i class="uil uil-calendar-alt"></i>
                <span>Ajout Formation</span>
             </li>
-            <li>
-               <i class="uil uil-chart-bar"></i>
-               <span>Charts</span>
+            <li routerLink="/Ajoututilisateur">
+               <i class="fa-solid fa-people-group"></i>
+               <span>Ajouter Utilisateur</span>
             </li>
             <li>
                <i class="uil uil-calendar-alt"></i>
@@ -124,7 +124,6 @@
                     <th>Status</th>
                 </tr>
                 
-                
                 <tr *ngFor="let encours of formationencours |paginate: { itemsPerPage:4, currentPage: p}" >
                     <td>{{encours.titre}}</td>
                     <td>{{encours.lieu}}</td>
@@ -142,7 +141,7 @@
                 <pagination-controls (pageChange)="p =$event"previousLabel="Précédent" nextLabel="Suivant" style="text-align: center; color: teal;"></pagination-controls>
             </table>
             </div>
-
+<!-- :::::::::::: -->
             <div class="customers">
                <div class="card-header flex">
                   <h3>Formateurs</h3>
@@ -188,7 +187,7 @@
                 </tr>
                 
                 
-                <tr *ngFor="let encours of formationterminer |paginate: { itemsPerPage:15, currentPage: p}">
+                <!-- <tr *ngFor="let encours of formationterminer |paginate: { itemsPerPage:15, currentPage: p}">
                     <td>{{encours.titre}}</td>
                     <td>{{encours.lieu}}</td>
                     <td>{{encours.datefin}}</td>
@@ -200,7 +199,22 @@
                             </select>
                           </form>
                     </td>
-                </tr>
+                </tr> -->
+
+                <tr *ngFor="let encours of formationterminer |paginate: { itemsPerPage:4, currentPage: p}" >
+                  <td>{{encours.titre}}</td>
+                  <td>{{encours.lieu}}</td>
+                  <td>{{encours.datefin}}</td>
+                  <td>
+                      <form style="  padding-right: 20px;" (ngSubmit)="ModifierEtat(encours)"> 
+                          <select style="width:80px;  height: 25px; margin-top: 3px; margin-bottom: 20px;" name="etat"  [(ngModel)]="encours.etat" >
+                            <option value="Sexe">Etat</option>
+                            <option *ngFor="let lesEtat of mesEtats"  >{{lesEtat}}</option>
+                          </select>
+                          <button type="submit">Changer</button>
+                        </form>
+                  </td>
+              </tr>
                 <pagination-controls (pageChange)="p =$event"previousLabel="Précédent" nextLabel="Suivant" style="text-align: center; color: teal;"></pagination-controls>
             </table>
             </div>
