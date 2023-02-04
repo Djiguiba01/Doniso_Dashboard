@@ -125,16 +125,17 @@
                 </tr>
                 
                 
-                <tr *ngFor="let encours of formationencours |paginate: { itemsPerPage:4, currentPage: p}" routerLink="/Detailformation" style="cursor:pointer" [routerLink]="['Detailformation', encours.idFormat]">
+                <tr *ngFor="let encours of formationencours |paginate: { itemsPerPage:4, currentPage: p}" >
                     <td>{{encours.titre}}</td>
                     <td>{{encours.lieu}}</td>
                     <td>{{encours.datedebut}}</td>
                     <td>
-                        <form style="  padding-right: 20px;"> 
-                            <select style="width:80px;  height: 25px; margin-top: 3px; margin-bottom: 20px;">
+                        <form style="  padding-right: 20px;" (ngSubmit)="ModifierEtat(encours)"> 
+                            <select style="width:80px;  height: 25px; margin-top: 3px; margin-bottom: 20px;" name="etat"  [(ngModel)]="encours.etat" >
                               <option value="Sexe">Etat</option>
-                              <option value="ffff" >ddddddd</option>
+                              <option *ngFor="let lesEtat of mesEtats"  >{{lesEtat}}</option>
                             </select>
+                            <button type="submit">Changer</button>
                           </form>
                     </td>
                 </tr>

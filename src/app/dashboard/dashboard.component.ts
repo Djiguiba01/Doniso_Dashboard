@@ -11,6 +11,13 @@ import { StorageService } from '../_services/storage.service';
 })
 export class DashboardComponent implements OnInit{
 
+form:any={
+
+  idformat:"",
+  etat:""
+
+}
+
   // Pagination
   p: number =1;
   // Utilisateurs
@@ -24,6 +31,10 @@ export class DashboardComponent implements OnInit{
   formationencours:any;
   formationterminer:any;
   toutformation:any;
+  etatformation:any;
+  formationtout:any;
+  idFormat:any;
+  mesEtats: any;
 
   constructor(
     private formateurserv: UtilisateurService, 
@@ -32,6 +43,14 @@ export class DashboardComponent implements OnInit{
     ) { }
 
   ngOnInit() {
+
+    //::::::::::::::::::::::::::::::::::::::::: RECUPERATION DES ETATS
+
+    this.format.getEtat().subscribe(data=>{
+      this.mesEtats = data
+    })
+
+
 
        // USER Voir tout les Admin:::::::::::::::::::::
        this.formateurserv.voirFormateuradmin().subscribe(data=>{
@@ -58,6 +77,10 @@ export class DashboardComponent implements OnInit{
     console.log(localStorage.getItem("auth-user"))
 
 
+  
+
+
+
     // Formations en INITIER:::::::::::::::::
     this.format.getFormation().subscribe(data=>{
       this.toutformation=data;
@@ -78,6 +101,26 @@ export class DashboardComponent implements OnInit{
       this.formationterminer=data;
     });
 
+      // Toutes les Formations:::::::::::::::::
+      this.format.getFormation().subscribe(data=>{
+        this.formationtout=data;
+        for(let former of this.formationtout){
+          this.idFormat = former.idFormat
+          console.log("ghggg" +this.idFormat)
+        }
+      });
+
+     
+
+  }
+  ModifierEtat(encours:any){
+    console.log("id ----- "+encours.idFormat)
+    const statusformation =encours.etat
+    console.log("status ----- "+statusformation)
+      // Changement Etat  Formation:::::::::::::::::
+      this.format.postFormationstatus(encours.idFormat,statusformation).subscribe(data=>{
+        this.etatformation=data;
+      });
   }
 
 }

@@ -37,6 +37,11 @@ export class FormationService {
      getFormationId(idFormat:number): Observable<Formation>{
       return this.http.get<Formation>(`http://localhost:8089/formation/voir/${idFormat}`)
     }
+
+     // """"""""""""""""""Etats Formations Encours """""""""""""
+     postFormationstatus(idFormat:number,formationstatus:string): Observable<Formation>{
+      return this.http.post<Formation>(`http://localhost:8089/formation/${formationstatus}/${idFormat}`,formationstatus)
+    }
   
 
          // """"""""""""""""""Ajouter les formation """""""""""""
@@ -63,5 +68,12 @@ export class FormationService {
 
       // 
 
+
+
+
+          // """"""""""""""""""Affiche tout les Etats de formation"""""""""""""
+    getEtat(): Observable<object>{
+      return this.http.get("http://localhost:8089/formation/enumValues")
+    }
 
 }
