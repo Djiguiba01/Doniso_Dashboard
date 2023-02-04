@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Admin Dashboard - WebTech Gyan</title>
+
+   <!-- iconscout cdn path -->
+   <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
+</head>
+<body>
+   <div class="sidebar" id="sidebar">
+      <div class="logo">
+         <h2>
+            <i class="uil uil-apple-alt"></i>
+            Iphone
+         </h2>
+      </div>
+
+      <div class="sidebar-menu">
+         <ul>
+            <li routerLink="/Dashboard">
+               <i class="uil uil-dashboard"></i>
+               <span>Dashboard</span>
+            </li>
+            <li routerLink="/AjoutFormat">
+               <i class="uil uil-calendar-alt"></i>
+               <span>Ajout Formation</span>
+            </li>
+            <li routerLink="/Ajoututilisateur">
+               <i class="fa-solid fa-people-group"></i>
+               <span>Ajouter Utilisateur</span>
+            </li>
+            <li routerLink="/Gestionparticipant">
+               <i class="uil uil-calendar-alt"></i>
+               <span>Gestion Participant</span>
+            </li>
+            <li>
+               <i class="uil uil-shopping-bag"></i>
+               <span>Orders</span>
+            </li>
+            <!-- <li routerLink="/Menu">
+               <i class="uil uil-clipboard-notes"></i>
+               <span>Menu</span>
+            </li> -->
+            <li>
+               <i class="uil uil-signin"></i>
+               <span>Logout</span>
+            </li>
+         </ul>
+      </div>
+   </div>
+
+   <div class="main-content" id="main-content">
+      <header class="flex">
+         <h2>
+            <i class="uil uil-bars" id="menu-icon"></i>
+            Dashboard
+         </h2>
+
+         <div class="search-box">
+            <i class="uil uil-search"></i>
+            <input type="text" placeholder="Search Here...">
+         </div>
+
+         <div class="admin-box flex" >
+            <img src="images/user.jpeg" width="30px" height="30px">
+            <div>
+               <h4>Naseem Khan</h4>
+               <small>Admin</small>
+            </div>
+         </div>
+      </header>
+
+      <!-- Statistique::::::::::::::::::::::: -->
+      <main>
+         <div class="cards">
+            <div class="single-card" >
+               <div>
+                  <span>Formateurs</span>
+                  <h2>vvvvvv</h2>
+               </div>
+               <i class="fa-solid fa-person-dots-from-line"></i>
+            </div>
+            <div class="single-card">
+               <div>
+                  <span> Demande total</span>
+                  <h2>nnnnnnnnnnn</h2>
+               </div>
+               <i class="fa-solid fa-graduation-cap"></i>
+            </div>
+            <div class="single-card">
+               <div>
+                  <span>Accepter</span>
+                  <h2>nnnnnnn</h2>
+               </div>
+               <i class="fa-solid fa-check"></i>
+            </div>
+            <div class="single-card">
+               <div>
+                  <span>Non_Accepter</span>
+                  <h2>bbbbbbbbbbb</h2>
+               </div>
+               <i class="fa-solid fa-spinner"></i>
+            </div>
+         </div>
+
+         <!-- ::::::::::::::::::::: -->
+         
+    <table class="table">
+        <thead>
+            <tr>
+             <th>S.No</th>
+             <th>Name</th>
+             <th>Age</th>
+             <th>Marks%</th>
+             <th>Status</th>
+            </tr>
+        </thead>
+        <tbody>
+              <tr>
+                    <td data-label="S.No">1</td>
+                    <td data-label="Name">Dinesh</td>
+                    <td data-label="Age">34</td>
+                    <td data-label="Marks%">50%</td>
+                    <td data-label="Staus">Passed</td>
+              </tr>
+   
+              <tr>
+                    <td data-label="S.No">2</td>
+                    <td data-label="Name">Kamal</td>
+                    <td data-label="Age">23</td>
+                    <td data-label="Marks%">70%</td>
+                    <td data-label="Staus">Passed</td>
+              </tr>
+   
+              <tr>
+                    <td data-label="S.No">3</td>
+                    <td data-label="Name">Neha</td>
+                    <td data-label="Age">20</td>
+                    <td data-label="Marks%">90%</td>
+                    <td data-label="Staus">Passed</td>
+              </tr>
+   
+              <tr>
+                    <td data-label="S.No">4</td>
+                    <td data-label="Name">Priya</td>
+                    <td data-label="Age">30</td>
+                    <td data-label="Marks%">30%</td>
+                    <td data-label="Staus">Failed</td>
+              </tr>
+        </tbody>
+      </table>
+   
+  <!-- :::::::::::::::::::: -->
+  
+
+
+         
+
+
+      </main>
+   </div>
+
+   <script>
+      let sideBar = document.getElementById('sidebar');
+      let menuIcon = document.getElementById('menu-icon');
+      let mainContent = document.getElementById('main-content');
+
+      menuIcon.onclick = () => {
+         sideBar.classList.toggle('toggleMenu');
+         mainContent.classList.toggle('toggleContent');
+      }
+   </script>
+</body>
+</html>

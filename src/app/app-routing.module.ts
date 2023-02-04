@@ -7,6 +7,9 @@ import { ConnexionComponent } from './connexion/connexion.component';
 import { AjoutformationComponent } from './ajoutformation/ajoutformation.component';
 import { DetailformationComponent } from './detailformation/detailformation.component';
 import { AjoututilisateurComponent } from './ajoututilisateur/ajoututilisateur.component';
+import { GestionparticipantComponent } from './gestionparticipant/gestionparticipant.component';
+import { MenuComponent } from './menu/menu.component';
+import { GestiondemandeComponent } from './gestiondemande/gestiondemande.component';
 
 const routes: Routes = [
   { path: '', component: ConnexionComponent },
@@ -14,6 +17,9 @@ const routes: Routes = [
    { path: 'AjoutFormat', component: AjoutformationComponent },
    { path: 'Detailformation', component: DetailformationComponent },
    { path: 'Ajoututilisateur', component: AjoututilisateurComponent },
+   { path: 'Gestionparticipant', component: GestionparticipantComponent },
+   { path: 'Gestiondemande', component: GestiondemandeComponent },
+   { path: 'Menu', component: MenuComponent },
   
 ]
 

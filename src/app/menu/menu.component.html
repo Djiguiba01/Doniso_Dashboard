@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Admin Dashboard - WebTech Gyan</title>
+
+   <!-- iconscout cdn path -->
+   <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
+</head>
+<body>
+   <div class="sidebar" id="sidebar">
+      <div class="logo">
+         <h2>
+            <i class="uil uil-apple-alt"></i>
+            Iphone
+         </h2>
+      </div>
+
+      <div class="sidebar-menu">
+         <ul>
+            <li routerLink="/Dashboard">
+               <i class="uil uil-dashboard"></i>
+               <span>Dashboard</span>
+            </li>
+            <li routerLink="/AjoutFormat">
+               <i class="uil uil-calendar-alt"></i>
+               <span>Ajout Formation</span>
+            </li>
+            <li routerLink="/Ajoututilisateur">
+               <i class="fa-solid fa-people-group"></i>
+               <span>Ajouter Utilisateur</span>
+            </li>
+            <li routerLink="/Gestionparticipant">
+               <i class="uil uil-calendar-alt"></i>
+               <span>Gestion Participant</span>
+            </li>
+            <li>
+               <i class="uil uil-shopping-bag"></i>
+               <span>Orders</span>
+            </li>
+            <li routerLink="/Gestiondemande">
+               <i class="uil uil-clipboard-notes"></i>
+               <span>Gestion Demande</span>
+            </li>
+            <li>
+               <i class="uil uil-signin"></i>
+               <span>Logout</span>
+            </li>
+         </ul>
+      </div>
+   </div>
+
+   <div class="main-content" id="main-content">
+      <header class="flex">
+         <h2>
+            <i class="uil uil-bars" id="menu-icon"></i>
+            Dashboard
+         </h2>
+
+         <div class="search-box">
+            <i class="uil uil-search"></i>
+            <input type="text" placeholder="Search Here...">
+         </div>
+
+         <div class="admin-box flex" >
+            <img src="images/user.jpeg" width="30px" height="30px">
+            <div>
+               <h4>Naseem Khan</h4>
+               <small>Admin</small>
+            </div>
+         </div>
+      </header>
+
+      <!-- Statistique::::::::::::::::::::::: -->
+      <main>
+         
+      </main>
+   </div>
+
+   <script>
+      let sideBar = document.getElementById('sidebar');
+      let menuIcon = document.getElementById('menu-icon');
+      let mainContent = document.getElementById('main-content');
+
+      menuIcon.onclick = () => {
+         sideBar.classList.toggle('toggleMenu');
+         mainContent.classList.toggle('toggleContent');
+      }
+   </script>
+</body>
+</html>

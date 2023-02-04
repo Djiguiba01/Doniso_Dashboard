@@ -12,6 +12,9 @@ import { AjoutformationComponent } from './ajoutformation/ajoutformation.compone
 import { DetailformationComponent } from './detailformation/detailformation.component';
 import { DetailutilisateurComponent } from './detailutilisateur/detailutilisateur.component';
 import { AjoututilisateurComponent } from './ajoututilisateur/ajoututilisateur.component';
+import { GestionparticipantComponent } from './gestionparticipant/gestionparticipant.component';
+import { MenuComponent } from './menu/menu.component';
+import { GestiondemandeComponent } from './gestiondemande/gestiondemande.component';
 
 
 @NgModule({
@@ -23,6 +26,11 @@ import { AjoututilisateurComponent } from './ajoututilisateur/ajoututilisateur.c
     DetailformationComponent,
     DetailutilisateurComponent,
     AjoututilisateurComponent,
+    GestionparticipantComponent,
+    GestionparticipantComponent,
+    MenuComponent,
+    GestiondemandeComponent,
+    GestiondemandeComponent,
   ],
   imports: [
     BrowserModule,

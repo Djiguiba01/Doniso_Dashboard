@@ -1,1 +1,151 @@
-<p>ajoututilisateur works!</p>
+
+<app-menu></app-menu>
+
+<div class="containeur" style="padding-top: 8%; margin-left: 20%; background-color: teal;">
+    <!-- <div class="conteneur-logo">
+      <img class="logo" src="../assets/images/logo.png">
+    </div> -->
+  
+    <!-- ::::::::::::::::::::::::::::::::::::::: -->
+    <form
+    *ngIf="!isSuccessful"
+    name="form"
+    (ngSubmit)="f.form.valid && onSubmit()"
+    #f="ngForm"
+    novalidate
+  >
+    <div class="formulaire">
+      <div class="input">
+        <input  type="text"
+        class="form-control"
+        name="username"
+        [(ngModel)]="form.username"
+        required
+        minlength="3"
+        maxlength="20"
+        #username="ngModel"
+        [ngClass]="{ 'is-invalid': f.submitted && username.errors }"
+         placeholder="Nom Utilisateur">
+  
+         <div class="invalid-feedback" *ngIf="username.errors && f.submitted">
+          <div *ngIf="username.errors['required']">Username is required</div>
+          <div *ngIf="username.errors['minlength']">
+            Username must be at least 3 characters
+          </div>
+          <div *ngIf="username.errors['maxlength']">
+            Username must be at most 20 characters
+          </div>
+        </div>
+      </div>
+  
+      <!-- Nom Complet -->
+      <div class="input">
+        <input type="text"
+        class="form-control"
+        name="nom"
+        [(ngModel)]="form.nom"
+        required
+        minlength="3"
+        maxlength="20"
+        #nom="ngModel"
+        [ngClass]="{ 'is-invalid': f.submitted && nom.errors }" 
+        placeholder="Nom complet">
+      </div>
+  
+      <!-- Profession -->
+      <div class="input">
+        <input type="text"
+        class="form-control"
+        name="profession"
+        [(ngModel)]="form.profession"
+        required
+        minlength="3"
+        maxlength="20"
+        #profession="ngModel"
+        [ngClass]="{ 'is-invalid': f.submitted && profession.errors }" 
+        placeholder="profession">
+      </div>
+      
+       <!-- Contact -->
+       <div class="input">
+        <input type="text"
+        class="form-control"
+        name="contact"
+        [(ngModel)]="form.contact"
+        required
+        minlength="3"
+        maxlength="20"
+        #contact="ngModel"
+        [ngClass]="{ 'is-invalid': f.submitted && contact.errors }" 
+        placeholder="contact">
+      </div>
+  
+      <!-- Email :::::::::::: -->
+      <div class="input">
+        <input type="email"
+        class="form-control"
+        name="email"
+        [(ngModel)]="form.email"
+        required
+        email
+        #email="ngModel"
+        [ngClass]="{ 'is-invalid': f.submitted && email.errors }"
+        placeholder="Votre email">
+      </div>
+  
+      <!-- Genre:: -->
+      <!-- <form> -->
+        <select type="text"
+          class="form-control"
+          name="sexe"
+          [(ngModel)]="form.sexe"
+          required
+          minlength="3"
+          maxlength="20"
+          #sexe="ngModel"
+          [ngClass]="{ 'is-invalid': f.submitted && sexe.errors }"
+          style="width:150px; margin-left: -32%; height: 37px; margin-top: 3px; margin-bottom: 20px;">
+
+          <option value="femme">Femme</option>
+            <option value="homme">Homme</option>
+          </select>
+  
+  
+  
+    <!-- Mot de passe -->
+      <div class="input" style="margin-top: -19px;">
+        <input type="password"
+        class="form-control"
+        name="password"
+        [(ngModel)]="form.password"
+        required
+        minlength="6"
+        #password="ngModel"
+        [ngClass]="{ 'is-invalid': f.submitted && password.errors }"
+        placeholder="Mot de passe">
+  
+        <div class="invalid-feedback" *ngIf="password.errors && f.submitted">
+          <div *ngIf="password.errors['required']">Password is required</div>
+          <div *ngIf="password.errors['minlength']">
+            Password must be at least 6 characters
+          </div>
+        </div>
+      </div>
+  
+      <div class="conteneur-submit">
+        <button class="envoyer-input" type="submit" expand="block">S'INSCRIRE</button>
+      </div>
+  
+      <div class="autres-options">
+        <div style="font-size: 14px;" >
+          Vous avez déjà un compte ? <span class="connexion" routerLink="/connexion">Connexion</span>
+        </div>
+      </div>
+  
+    </div>
+  
+  </form>
+  </div> 
+
+  <!-- ::::::::::::::::::::::::::::::::::::::::::: -->
+  
