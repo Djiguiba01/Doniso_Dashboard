@@ -15,6 +15,7 @@ import { AjoututilisateurComponent } from './ajoututilisateur/ajoututilisateur.c
 import { GestionparticipantComponent } from './gestionparticipant/gestionparticipant.component';
 import { MenuComponent } from './menu/menu.component';
 import { GestiondemandeComponent } from './gestiondemande/gestiondemande.component';
+import { DetailparticipantComponent } from './detailparticipant/detailparticipant.component';
 
 
 @NgModule({
@@ -31,6 +32,7 @@ import { GestiondemandeComponent } from './gestiondemande/gestiondemande.compone
     MenuComponent,
     GestiondemandeComponent,
     GestiondemandeComponent,
+    DetailparticipantComponent,
   ],
   imports: [
     BrowserModule,

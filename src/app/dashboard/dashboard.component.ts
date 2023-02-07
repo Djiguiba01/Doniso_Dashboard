@@ -81,7 +81,7 @@ form:any={
 
 
 
-    // Formations en INITIER:::::::::::::::::
+    // Formations en t:::::::::::::::::
     this.format.getFormation().subscribe(data=>{
       this.toutformation=data;
     });

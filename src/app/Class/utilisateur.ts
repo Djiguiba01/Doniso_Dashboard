@@ -9,5 +9,5 @@ export class Utilisateur {
     photo:string |undefined;
     contact:string |undefined;
     Sexe:string |undefined;
-    
+    Role:string |undefined;    
 }

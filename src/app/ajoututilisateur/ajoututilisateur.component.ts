@@ -16,7 +16,7 @@ export class AjoututilisateurComponent implements OnInit {
     nom: null,
     profession:null,
     contact: null,
-    sexe: null
+    sexe: null,
   };
   isSuccessful = false;
   isSignUpFailed = false;

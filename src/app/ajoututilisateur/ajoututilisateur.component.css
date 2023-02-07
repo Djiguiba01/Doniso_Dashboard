@@ -86,3 +86,17 @@ ion-title{
 .connexion:hover{
   cursor: pointer;
 }
+
+.containeur{
+  padding-top: 5%; 
+  margin-left: 25%; 
+  background-image: url("/assets/images/connexion.jpg"); 
+  width: 70%; 
+  height: 600px;
+  margin-top: 5%;
+}
+form{
+width: 80%;
+padding-top: -3%;
+margin-left: 12%;
+}

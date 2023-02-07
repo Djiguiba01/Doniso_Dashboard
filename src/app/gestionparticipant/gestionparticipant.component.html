@@ -1,47 +1,26 @@
 <app-menu></app-menu>
 
-    <table class="table">
-      <thead>
-          <tr>
-           <th>S.No</th>
-           <th>Name</th>
-           <th>Age</th>
-           <th>Marks%</th>
-           <th>Status</th>
-          </tr>
-      </thead>
-      <tbody>
-            <tr>
-                  <td data-label="S.No">1</td>
-                  <td data-label="Name">Dinesh</td>
-                  <td data-label="Age">34</td>
-                  <td data-label="Marks%">50%</td>
-                  <td data-label="Staus">Passed</td>
-            </tr>
- 
-            <tr>
-                  <td data-label="S.No">2</td>
-                  <td data-label="Name">Kamal</td>
-                  <td data-label="Age">23</td>
-                  <td data-label="Marks%">70%</td>
-                  <td data-label="Staus">Passed</td>
-            </tr>
- 
-            <tr>
-                  <td data-label="S.No">3</td>
-                  <td data-label="Name">Neha</td>
-                  <td data-label="Age">20</td>
-                  <td data-label="Marks%">90%</td>
-                  <td data-label="Staus">Passed</td>
-            </tr>
- 
-            <tr>
-                  <td data-label="S.No">4</td>
-                  <td data-label="Name">Priya</td>
-                  <td data-label="Age">30</td>
-                  <td data-label="Marks%">30%</td>
-                  <td data-label="Staus">Failed</td>
-            </tr>
-      </tbody>
-    </table>
- 
+                <main> 
+                  <div class="container-fluid bg-trasparent my-4 p-3" style="position: relative;"> 
+                  <div class="row row-cols-1 row-cols-xs-2 row-cols-sm-2 row-cols-lg-4 g-3"> 
+
+                        <!-- :::: -->
+                  <div class="col" *ngFor="let voir of formationencours"> 
+                  <div class="card h-100 shadow-sm" > 
+                        <img src="/assets/images/{{voir.image}}" class="card-img-top" alt="..."> 
+                        <div class="card-body"> 
+                  <div class="clearfix mb-3"> 
+                        <span class="float-start price-hp">{{voir.datedebut}}</span> 
+                  </div> 
+                        <h5 class="card-title">{{voir.titre}}</h5> 
+                        <div class="text-center my-4"> 
+                              <a href="#" class="btn btn-warning" [routerLink]="['/detailparticipant', voir.idFormat]">Voir+</a> 
+                        </div> 
+                        </div> 
+                   </div> 
+                        </div>
+                         <!-- :::: -->
+                  </div> </div> 
+       </main>
+
+    

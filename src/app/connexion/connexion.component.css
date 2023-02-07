@@ -1,89 +1,154 @@
- /* ion-content{
-        --background: red;
-     } */
-    
-    /* //La barre en haut */
-    ion-toolbar{
-      --background: teal;
-      color: #fff;
-      padding: 0;
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;800&display=swap');
+
+*{
+    font-family: 'Poppins', sans-serif;
+}
+.wrapper{
+    background-image: url('../../assets/images/background.jpg');
+    /* padding: 0 20px 0 20px; */
+    margin-top: -1%;
+}
+.main{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+.row{
+    width: 900px;
+    height: 550px;
+    border-radius: 10px;
+    background: #fff;
+    box-shadow: 5px 5px 10px 1px rgba(0,0,0,0.2);
+}
+.side-image{
+    background-image: url("../../assets/images/connexion.jpg");
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    position: relative;
+    border-radius: 10px 0 0 10px;
+}
+img{
+    width: 35px;
+    position: absolute;
+    top: 30px;
+    left: 30px;
+}
+.text{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+.text p{
+    color: #fff;
+    font-size: 18px;
+}
+i{
+    font-weight: 400;
+    font-size: 15px;
+}
+.right{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+.input-box{
+    width: 330px;
+    box-sizing: border-box;
+}
+.input-box header{
+  background-color: fff;
+  color: teal;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 45px;
+}
+.input-field{
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    padding: 0 10px 0 10px;
+}
+.input{
+    height: 45px;
+    width: 100%;
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid rgba(0,0,0,0.2);
+    outline: none;
+    margin-bottom: 20px;
+    color: #40414a;
+}
+.input-box .input-field label{
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    pointer-events: none;
+    transition: .5s;
+}
+.input-field .input:focus ~ label{
+    top: -10px;
+    font-size: 13px;
+}
+.input-field .input:valid ~ label{
+    top: -10px;
+    font-size: 13px;
+    color: #5d5076;
+}
+.input-field .input:focus, .input-field .input:valid{
+    border-bottom: 1px solid #743ae1;
+}
+.submit{
+    border: none;
+    outline: none;
+    height: 45px;
+    background: teal;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: .4s;
+}
+.submit:hover{
+    background: black;
+    color: #fff;
+}
+.signin{
+    text-align: center;
+    font-size: small;
+    margin-top: 25px;
+}
+span a{
+    text-decoration: none;
+    font-weight: 700;
+    color: #000;
+    transition: .5s;
+}
+span a:hover{
+    text-decoration: underline;
+    color: #000;
+}
+@media only screen and (max-width: 768px){
+    .side-image{
+        border-radius: 10px 10px 0 0;
     }
-    
-    /* //le titre de la barre */
-    ion-title{
-      font-size: 15px;
+    img{
+        width: 35px;
+        position: absolute;
+        top: 20px;
+        left: 47%;
     }
-    
-    
-    /* //le logo de l'app */
-    .logo{
-      height: 125px;
-      width: 100px;
+    .text{
+        position: absolute;
+        top: 70%;
+        text-align: center;
     }
-    .trait{
-      width: 52%;
-      border: 2px solid teal;
+    .text p,i{
+        font-size: 17px;
     }
-    
-    /* //le conteneur de l'application */
-    .conteneur-logo{
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 25vh;
+    .row{
+        max-width: 420px;
+        width: 100%;
     }
-    
-  
-    
-    /* //le conteneur de mon formullaire */
-    .formulaire{
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      flex-direction: column;
-      gap: 10px;
-      margin-bottom: 30px;
-    }
-    
-    /* //le champ numero de telephone */
-    .form-control{
-      border-radius: 7px;
-      height: 45px;
-      border: 1px solid rgba(0, 0, 0, 0.12);
-    }
-    
-    /* //le button envoyer */
-    .envoyer-input{
-      --background: teal;
-      box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-      border-radius: 15px;
-    }
-    
-    .obligatoire{
-      color: red;
-    }
-    form{
-      width: 80%;
-    }
-    
-    ion-button{
-      width: 100% !important;
-    }
-    .conteneur-submit{
-      padding-top: 13%;
-      width: 100%;
-      display: flex;
-      justify-content: center;
-    }
-    
-    .connexion{
-      color: teal;
-      font-weight: bold;
-    }
-    
-    .connexion:hover{
-      cursor: pointer;
-    }
-    
-    
-    
+}

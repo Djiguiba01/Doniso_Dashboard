@@ -1,7 +1,7 @@
 
 <app-menu></app-menu>
 
-<div class="containeur" style="padding-top: 8%; margin-left: 20%; background-color: teal;">
+<div class="containeur" style="">
     <!-- <div class="conteneur-logo">
       <img class="logo" src="../assets/images/logo.png">
     </div> -->
@@ -94,7 +94,7 @@
       </div>
   
       <!-- Genre:: -->
-      <!-- <form> -->
+      <form style="width:150px; margin-left: -58%; height: 37px; margin-top: 3px; margin-bottom: 20px;">
         <select type="text"
           class="form-control"
           name="sexe"
@@ -104,12 +104,28 @@
           maxlength="20"
           #sexe="ngModel"
           [ngClass]="{ 'is-invalid': f.submitted && sexe.errors }"
-          style="width:150px; margin-left: -32%; height: 37px; margin-top: 3px; margin-bottom: 20px;">
-
+          >
           <option value="femme">Femme</option>
             <option value="homme">Homme</option>
           </select>
-  
+          </form>
+
+           <!-- Role:: -->
+      <form style="width:150px; margin-left: -58%; height: 37px; margin-top: 3px; margin-bottom: 20px;">
+        <select type="text"
+          class="form-control"
+          name="sexe"
+          [(ngModel)]="form.sexe"
+          required
+          minlength="3"
+          maxlength="20"
+          #sexe="ngModel"
+          [ngClass]="{ 'is-invalid': f.submitted && sexe.errors }"
+          >
+          <option value="femme">Femme</option>
+            <option value="homme">Homme</option>
+          </select>
+          </form>
   
   
     <!-- Mot de passe -->
@@ -136,11 +152,11 @@
         <button class="envoyer-input" type="submit" expand="block">S'INSCRIRE</button>
       </div>
   
-      <div class="autres-options">
+      <!-- <div class="autres-options">
         <div style="font-size: 14px;" >
           Vous avez déjà un compte ? <span class="connexion" routerLink="/connexion">Connexion</span>
         </div>
-      </div>
+      </div> -->
   
     </div>
   

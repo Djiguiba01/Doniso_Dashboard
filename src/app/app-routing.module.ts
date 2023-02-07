@@ -10,6 +10,7 @@ import { AjoututilisateurComponent } from './ajoututilisateur/ajoututilisateur.c
 import { GestionparticipantComponent } from './gestionparticipant/gestionparticipant.component';
 import { MenuComponent } from './menu/menu.component';
 import { GestiondemandeComponent } from './gestiondemande/gestiondemande.component';
+import { DetailparticipantComponent } from './detailparticipant/detailparticipant.component';
 
 const routes: Routes = [
   { path: '', component: ConnexionComponent },
@@ -19,6 +20,7 @@ const routes: Routes = [
    { path: 'Ajoututilisateur', component: AjoututilisateurComponent },
    { path: 'Gestionparticipant', component: GestionparticipantComponent },
    { path: 'Gestiondemande', component: GestiondemandeComponent },
+   { path: 'detailparticipant/:idPart', component: DetailparticipantComponent },
    { path: 'Menu', component: MenuComponent },
   
 ]

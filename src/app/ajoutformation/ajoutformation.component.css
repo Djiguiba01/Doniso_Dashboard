@@ -7,11 +7,11 @@
 
 body{
     display: flex;
-    margin-top: -3%;
+    /* margin-top: -1%; */
     height: 100vh;
     justify-content: center;
     align-items: center;
-    background: url("../../assets/connexion.jpg");
+    background: url("../../assets/images/connexion.jpg");
     background-size: cover;
 }
 
@@ -20,7 +20,8 @@ body{
     max-width: 650px;
     background: rgba(0, 0, 0, 0.5);
     padding: 28px;
-    margin: 0 28px;
+    /* margin: 0 28px; */
+    margin-left: 17%;
     border-radius: 10px;
     box-shadow: inset -2px 2px 2px white;
 }
