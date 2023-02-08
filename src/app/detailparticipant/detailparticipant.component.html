@@ -1,47 +1,109 @@
 <app-menu></app-menu>
-<h3 style="text-align: center; margin-top: 3%;">La liste des participants</h3>
+
+<div class="main-content" id="main-content">
+
+
+<!-- :::::::::::::::::::: -->
+<h3 style="text-align: center; margin-top: 3%;">La liste des participants encours : {{participant.length}}</h3>
 <table class="table">
     <thead>
         <tr>
-         <th>S.No</th>
-         <th>Name</th>
+         <th>No</th>
+         <th>Email</th>
+         <th>Quartier</th>
          <th>Age</th>
          <th>Marks%</th>
          <th>Status</th>
         </tr>
     </thead>
     <tbody>
-          <tr>
-                <td data-label="S.No">1</td>
-                <td data-label="Name">Dinesh</td>
-                <td data-label="Age">34</td>
-                <td data-label="Marks%">50%</td>
-                <td data-label="Staus">Passed</td>
-          </tr>
 
-          <tr>
-                <td data-label="S.No">2</td>
-                <td data-label="Name">Kamal</td>
-                <td data-label="Age">23</td>
+           <tr *ngFor="let voir of participant |paginate: { itemsPerPage:10, currentPage: p}">
+                <td data-label="S.No">{{voir.idPart}}</td>
+                <td data-label="Name">{{voir.email}}</td>
+                <td data-label="Age">{{voir.nom}}</td>
+                <td data-label="Marks%">{{voir.sexe}}</td>
                 <td data-label="Marks%">70%</td>
-                <td data-label="Staus">Passed</td>
-          </tr>
+                <td data-label="Staus">
+                  <!--  ::::::::-->
+                  <form >
+                    <select style="width: 30%; height: 30px;" name="etat">
+                      <option value="Sexe">Etat</option>
+                      <option *ngFor="let lesEtat of mesEtats">{{lesEtat}}</option>
+                    </select>
+                    <button style="height: 35px; margin-left: 25px;" type="submit">Changer</button>
+                  </form>
+                  <!--  ::::::::::-->
+                </td>
+           </tr>
 
-          <tr>
-                <td data-label="S.No">3</td>
-                <td data-label="Name">Neha</td>
-                <td data-label="Age">20</td>
-                <td data-label="Marks%">90%</td>
-                <td data-label="Staus">Passed</td>
-          </tr>
-
-          <tr>
-                <td data-label="S.No">4</td>
-                <td data-label="Name">Priya</td>
-                <td data-label="Age">30</td>
-                <td data-label="Marks%">30%</td>
-                <td data-label="Staus">Failed</td>
-          </tr>
     </tbody>
-  </table>
 
+  </table>
+  <pagination-controls (pageChange)="p =$event"previousLabel="Précédent" nextLabel="Suivant" style="text-align: center; color: teal;"></pagination-controls>
+
+
+  <!-- ::::::::::::::::::::::: -->
+  <!-- Formation encours et Formateurs:::::::::::::::::::: -->
+  <div class="wrapper flex">
+    <div class="projects">
+       <div class="card-header flex">
+          <h3>Valider</h3>
+          <button>{{participantValid.length}} </button>
+       </div>
+
+       <table>
+        <tr>
+            <th>Email</th>
+            <th>Quartier</th>
+            <th>Age</th>
+            <th>Status</th>
+        </tr>
+
+        <tr  *ngFor="let valid of participantValid |paginate: { itemsPerPage:6, currentPage: p}">
+            <td>{{valid.email}}</td>
+            <td>{{valid.sexe}}</td>
+            <td>qqqqqq</td>
+            <td>
+                <form style="  padding-right: 20px;" >
+                    <select style="width:80px;  height: 25px; margin-top: 3px; margin-bottom: 20px;" name="etat"  >
+                      <option value="Sexe">Etat</option>
+                      <option *ngFor="let lesEtat of mesEtats"  > </option>
+                    </select>
+                    <button type="submit">Changer</button>
+                  </form>
+            </td>
+        </tr>
+        <pagination-controls (pageChange)="p =$event"previousLabel="Précédent" nextLabel="Suivant" style="text-align: center; color: teal;"></pagination-controls>
+    </table>
+
+    </div>
+<!-- :::::::::::: -->
+    <div class="customers">
+       <div class="card-header flex">
+          <h3>Non Valider</h3>
+          <button>{{participantNonValid.length}}</button>
+       </div>
+
+       <table>
+          <tr class="flex" *ngFor="let nonvalid of participantNonValid |paginate: { itemsPerPage:5, currentPage: p}">
+                <td class="flex">
+                    <img src="/assets/images/djiguiba.jpg" width="30px" height="30px" alt="">
+                    <div>
+                       <h5>{{nonvalid.nom}}</h5>
+                       <small>ddddd</small>
+                    </div>
+                 </td>
+
+                 <td>
+                    <i class="uil uil-user-circle"></i>
+                    <i class="uil uil-calender"></i>
+                    <i class="uil uil-phone-alt"></i>
+                 </td>
+          </tr>
+          <pagination-controls (pageChange)="p =$event"previousLabel="Précédent" nextLabel="Suivant" style="text-align: center; color: teal;"></pagination-controls>
+       </table>
+    </div>
+
+ </div>
+</div>

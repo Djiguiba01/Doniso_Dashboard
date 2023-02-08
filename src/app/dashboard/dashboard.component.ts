@@ -37,7 +37,7 @@ form:any={
   mesEtats: any;
 
   constructor(
-    private formateurserv: UtilisateurService, 
+    private formateurserv: UtilisateurService,
     private format: FormationService,
     private storageService: StorageService,
     ) { }
@@ -77,7 +77,7 @@ form:any={
     console.log(localStorage.getItem("auth-user"))
 
 
-  
+
 
 
 
@@ -109,10 +109,8 @@ form:any={
           console.log("ghggg" +this.idFormat)
         }
       });
-
-     
-
   }
+  
   ModifierEtat(encours:any){
     console.log("id ----- "+encours.idFormat)
     const statusformation =encours.etat

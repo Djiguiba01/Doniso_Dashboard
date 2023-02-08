@@ -1,26 +1,62 @@
 <app-menu></app-menu>
 
-                <main> 
-                  <div class="container-fluid bg-trasparent my-4 p-3" style="position: relative;"> 
-                  <div class="row row-cols-1 row-cols-xs-2 row-cols-sm-2 row-cols-lg-4 g-3"> 
+
+            <div class="main-content" id="main-content" style="margin-top: 1%;padding-left: 2%; padding-right: 2%;">
+
+                  <div class="cards">
+                    <div class="single-card" >
+                      <div>
+                          <span> Total</span>
+                          <h2>{{participt.length}}</h2>
+                      </div>
+                      <i class="fa-sharp fa-solid fa-folder-open"></i>
+                    </div>
+                    <div class="single-card">
+                      <div>
+                          <span> Accepter</span>
+                          <h2>{{valider.length}}</h2>
+                      </div>
+                      <i class="fa-sharp fa-regular fa-circle-check"></i>
+                    </div>
+                    <div class="single-card">
+                      <div>
+                          <span>Non_Accepter</span>
+                          <h2>{{nonvalider.length}}</h2>
+                      </div>
+                      <i class="fa-sharp fa-solid fa-thumbs-down"></i>
+                    </div>
+                    <div class="single-card">
+                      <div>
+                          <span>Encours</span>
+                          <h2>{{initial.length}}</h2>
+                      </div>
+                      <i class="fa-solid fa-spinner"></i>
+                    </div>
+                  </div>
+                </div>
+
+                  <!-- :::::::::::::::::: -->
+
+                <main>
+                  <div class="container-fluid bg-trasparent my-4 p-3" style="position: relative;">
+                  <div class="row row-cols-1 row-cols-xs-2 row-cols-sm-2 row-cols-lg-4 g-3">
 
                         <!-- :::: -->
-                  <div class="col" *ngFor="let voir of formationencours"> 
-                  <div class="card h-100 shadow-sm" > 
-                        <img src="/assets/images/{{voir.image}}" class="card-img-top" alt="..."> 
-                        <div class="card-body"> 
-                  <div class="clearfix mb-3"> 
-                        <span class="float-start price-hp">{{voir.datedebut}}</span> 
-                  </div> 
-                        <h5 class="card-title">{{voir.titre}}</h5> 
-                        <div class="text-center my-4"> 
-                              <a href="#" class="btn btn-warning" [routerLink]="['/detailparticipant', voir.idFormat]">Voir+</a> 
-                        </div> 
-                        </div> 
-                   </div> 
+                  <div class="col" *ngFor="let voir of formationencours">
+                  <div class="card h-100 shadow-sm" >
+                        <img src="/assets/images/{{voir.image}}" class="card-img-top" alt="...">
+                        <div class="card-body">
+                  <div class="clearfix mb-3">
+                        <span class="float-start price-hp">{{voir.datedebut}}</span>
+                  </div>
+                        <h5 class="card-title">{{voir.titre}}</h5>
+                        <div class="text-center my-4">
+                              <a href="#" class="btn btn-warning" [routerLink]="['/detailparticipant', voir.idFormat]">Voir+</a>
+                        </div>
+                        </div>
+                   </div>
                         </div>
                          <!-- :::: -->
-                  </div> </div> 
-       </main>
+                  </div> </div>
+        </main>
 
-    

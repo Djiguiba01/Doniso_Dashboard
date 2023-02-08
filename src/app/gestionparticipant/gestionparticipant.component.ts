@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { FormationService } from '../Service/formation.service';
+import { ParticipantService } from '../Service/participant.service';
 import { UtilisateurService } from '../Service/utilisateur.service';
 
 @Component({
@@ -16,30 +17,38 @@ export class GestionparticipantComponent implements OnInit{
    formationvenir:any;
 
   form:any={
-  
+
     idformat:"",
     etat:""
-  
+
   }
-  
+
     // Pagination
     p: number =1;
-  
+
     // Formations
     toutformation:any;
     titre:any;
- 
-  
+
+    // Participants
+    participt:any;
+    valider:any;
+    nonvalider:any;
+    initial:any;
+
+
+
     constructor(
       private route:ActivatedRoute,
-      private formateurserv: UtilisateurService, 
+      private formateurserv: UtilisateurService,
       private format: FormationService,
+      private particip: ParticipantService,
       ) { }
-  
+
     ngOnInit() {
 
       //this.idPart=this.route.snapshot.params['idPart'];
-  
+
       // Formations en to:::::::::::::::::
       this.format.getFormation().subscribe(data=>{
         this.toutformation=data;
@@ -61,8 +70,27 @@ export class GestionparticipantComponent implements OnInit{
       this.formationterminer=data;
     });
 
+       //  Tout les Participations :::::::::::::::::
+       this.particip.getParticipant().subscribe(data=>{
+        this.participt=data;
+      });
+
+      //  Participant Accepter :::::::::::::::::
+      this.particip.getParticipantValider().subscribe(data=>{
+        this.valider=data;
+      });
+
+      //  Participants Non Accepter :::::::::::::::::
+      this.particip.getParticipantNonValider().subscribe(data=>{
+        this.nonvalider=data;
+      });
+
+      //  Participants Initiale :::::::::::::::::
+      this.particip.getParticipantInitial().subscribe(data=>{
+        this.initial=data;
+      });
+
 
     }
-  
+
   }
-  

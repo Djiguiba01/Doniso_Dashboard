@@ -1,3 +1,7 @@
+main{
+  padding: 30px 20px;
+}
+
 body{
 
 	font-family: sans-serif;
@@ -8,8 +12,8 @@ body{
 }
 
 .table{
-	width: 80%;
-    margin-left: 19%;
+	width: 99%;
+    margin-left: 0,5%;
     margin-top:3% ;
 	border-collapse: collapse;
 }
