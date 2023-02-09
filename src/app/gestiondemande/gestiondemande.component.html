@@ -1,162 +1,148 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <title>Admin Dashboard - WebTech Gyan</title>
 
-   <!-- iconscout cdn path -->
-   <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
-</head>
 <body>
-   <div class="sidebar" id="sidebar">
-      <div class="logo">
-         <h2>
-            <i class="uil uil-apple-alt"></i>
-            Iphone
-         </h2>
-      </div>
-
-      <div class="sidebar-menu">
-         <ul>
-            <li routerLink="/Dashboard">
-               <i class="uil uil-dashboard"></i>
-               <span>Dashboard</span>
-            </li>
-            <li routerLink="/AjoutFormat">
-               <i class="uil uil-calendar-alt"></i>
-               <span>Ajout Formation</span>
-            </li>
-            <li routerLink="/Ajoututilisateur">
-               <i class="fa-solid fa-people-group"></i>
-               <span>Ajouter Utilisateur</span>
-            </li>
-            <li routerLink="/Gestionparticipant">
-               <i class="uil uil-calendar-alt"></i>
-               <span>Gestion Participant</span>
-            </li>
-            <li>
-               <i class="uil uil-shopping-bag"></i>
-               <span>Orders</span>
-            </li>
-            <!-- <li routerLink="/Menu">
-               <i class="uil uil-clipboard-notes"></i>
-               <span>Menu</span>
-            </li> -->
-            <li>
-               <i class="uil uil-signin"></i>
-               <span>Logout</span>
-            </li>
-         </ul>
-      </div>
-   </div>
+  <app-menu></app-menu>
 
    <div class="main-content" id="main-content">
-      <header class="flex">
-         <h2>
-            <i class="uil uil-bars" id="menu-icon"></i>
-            Dashboard
-         </h2>
-
-         <div class="search-box">
-            <i class="uil uil-search"></i>
-            <input type="text" placeholder="Search Here...">
-         </div>
-
-         <div class="admin-box flex" >
-            <img src="images/user.jpeg" width="30px" height="30px">
-            <div>
-               <h4>Naseem Khan</h4>
-               <small>Admin</small>
-            </div>
-         </div>
-      </header>
 
       <!-- Statistique::::::::::::::::::::::: -->
       <main>
          <div class="cards">
-            <div class="single-card" >
-               <div>
-                  <span>Formateurs</span>
-                  <h2>vvvvvv</h2>
-               </div>
-               <i class="fa-solid fa-person-dots-from-line"></i>
-            </div>
+
             <div class="single-card">
                <div>
                   <span> Demande total</span>
-                  <h2>nnnnnnnnnnn</h2>
+                  <h2>{{demandvoir.length}}</h2>
                </div>
                <i class="fa-solid fa-graduation-cap"></i>
             </div>
+            <div class="single-card" >
+              <div>
+                 <span>Demande encours</span>
+                 <h2>{{demandencours.length}}</h2>
+              </div>
+              <i class="fa-solid fa-spinner"></i>
+           </div>
             <div class="single-card">
                <div>
                   <span>Accepter</span>
-                  <h2>nnnnnnn</h2>
+                  <h2>{{demandaccepter.length}}</h2>
                </div>
                <i class="fa-solid fa-check"></i>
             </div>
             <div class="single-card">
                <div>
                   <span>Non_Accepter</span>
-                  <h2>bbbbbbbbbbb</h2>
+                  <h2>{{demandrejeter.length}}</h2>
                </div>
-               <i class="fa-solid fa-spinner"></i>
+               <i class="fa-solid fa-thumbs-down"></i>
             </div>
          </div>
 
          <!-- ::::::::::::::::::::: -->
-         
+         <h3 style="text-align: center; margin-top: 3%;">La liste des démandes encours : {{demandencours.length}}</h3>
     <table class="table">
         <thead>
             <tr>
-             <th>S.No</th>
-             <th>Name</th>
-             <th>Age</th>
-             <th>Marks%</th>
+             <th>Structure</th>
+             <th>Localité</th>
+             <th>Email</th>
+             <th>Type de Formation</th>
+             <th>Nombre de personne</th>
              <th>Status</th>
             </tr>
         </thead>
         <tbody>
-              <tr>
-                    <td data-label="S.No">1</td>
-                    <td data-label="Name">Dinesh</td>
-                    <td data-label="Age">34</td>
-                    <td data-label="Marks%">50%</td>
-                    <td data-label="Staus">Passed</td>
+              <tr *ngFor="let voir of demandencours |paginate: { itemsPerPage:4, currentPage: p}">
+                    <td data-label="S.No">{{voir.structure}}</td>
+                    <td data-label="Name">{{voir.lieu}}</td>
+                    <td data-label="Age">{{voir.email}}</td>
+                    <td data-label="Age">{{voir.type}}</td>
+                    <td data-label="Age">{{voir.personnes}}</td>
+                    <td data-label="Staus">
+                      <form style="" >
+                        <select style="width:100px;  height: 33px; margin-top: 3px;" name="etat"  >
+                          <option value="Sexe">Etat</option>
+                          <option *ngFor="let lesEtat of mesEtats"  >{{lesEtat}}</option>
+                        </select>
+                        <button type="submit" style=" height: 36px; margin-left: 3%;">Changer</button>
+                      </form>
+                    </td>
               </tr>
-   
-              <tr>
-                    <td data-label="S.No">2</td>
-                    <td data-label="Name">Kamal</td>
-                    <td data-label="Age">23</td>
-                    <td data-label="Marks%">70%</td>
-                    <td data-label="Staus">Passed</td>
-              </tr>
-   
-              <tr>
-                    <td data-label="S.No">3</td>
-                    <td data-label="Name">Neha</td>
-                    <td data-label="Age">20</td>
-                    <td data-label="Marks%">90%</td>
-                    <td data-label="Staus">Passed</td>
-              </tr>
-   
-              <tr>
-                    <td data-label="S.No">4</td>
-                    <td data-label="Name">Priya</td>
-                    <td data-label="Age">30</td>
-                    <td data-label="Marks%">30%</td>
-                    <td data-label="Staus">Failed</td>
-              </tr>
+
         </tbody>
       </table>
-   
+      <pagination-controls (pageChange)="p =$event"previousLabel="Précédent" nextLabel="Suivant" style="text-align: center; color: teal;"></pagination-controls>
+
+
+
   <!-- :::::::::::::::::::: -->
-  
+  <!-- Participants Accepter et Rejeter:::::::::::::::::::: -->
+  <div class="wrapper flex">
+    <div class="projects">
+       <div class="card-header flex">
+          <h3>Accepter</h3>
+          <button>{{demandaccepter.length}}</button>
+       </div>
+
+       <table>
+        <tr>
+            <th>Structure</th>
+            <th>Email</th>
+            <th>Personnes</th>
+            <th>Status</th>
+        </tr>
+
+        <tr  *ngFor="let voiraccept of demandaccepter |paginate: { itemsPerPage:4, currentPage: p}">
+            <td>{{voiraccept.structure}}</td>
+            <td>{{voiraccept.email}}</td>
+            <td>{{voiraccept.personnes}}</td>
+            <td>
+                <form style="  padding-right: 20px;" >
+                    <select style="width:90px;  height: 25px; margin-top: 3px; margin-bottom: 20px;" name="etat" >
+                      <option value="Sexe">Etat</option>
+                      <option *ngFor="let lesEtat of mesEtats"  >{{lesEtat}}</option>
+                    </select>
+                    <button type="submit" style="height: 33px; margin-left: 25px;">Changer</button>
+                  </form>
+            </td>
+        </tr>
+    </table>
+    <pagination-controls (pageChange)="p =$event"previousLabel="Précédent" nextLabel="Suivant" style="text-align: center; color: teal;"></pagination-controls>
 
 
-         
+    </div>
+<!-- :::::::::::: -->
+    <div class="customers">
+       <div class="card-header flex">
+          <h3>Rejeter</h3>
+          <button routerLink="/Ajoututilisateur">{{demandrejeter.length}}</button>
+       </div>
 
+       <table>
+          <tr class="flex" *ngFor="let voirejet of demandrejeter |paginate: { itemsPerPage:4, currentPage: p}">
+                <td class="flex" >
+                    <img src="/assets/images/{{voirejet.images}}" width="30px" height="30px" alt="">
+                    <div>
+                       <h5>{{voirejet.structure}}</h5>
+                       <small>{{voirejet.email}}</small>
+                    </div>
+                 </td>
+
+                 <td>
+                  <form style="  margin-right: -10%;" >
+                    <select style="width:90px;  height: 25px; margin-top: 3px; margin-bottom: 20px;" name="etat" >
+                      <option value="Sexe">Etat</option>
+                      <option *ngFor="let lesEtat of mesEtats"  >{{lesEtat}}</option>
+                    </select>
+                    <button type="submit" style="height: 33px; margin-left: 5px;">Changer</button>
+                  </form>
+                 </td>
+          </tr>
+          <pagination-controls (pageChange)="p =$event"previousLabel="Précédent" nextLabel="Suivant" style="text-align: center; color: teal;"></pagination-controls>
+       </table>
+    </div>
+
+ </div>
 
       </main>
    </div>
@@ -172,4 +158,3 @@
       }
    </script>
 </body>
-</html>

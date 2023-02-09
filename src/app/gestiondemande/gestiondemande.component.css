@@ -9,7 +9,7 @@ body{
 }
 
 .table{
-	width: 80%;
+	width: 100%;
     /* margin-left: 19%; */
     margin-top:3% ;
 	border-collapse: collapse;
@@ -23,7 +23,7 @@ body{
 }
 
 .table th{
-	background-color: darkblue;
+	background-color: teal;
 	color:#ffffff;
 }
 

@@ -23,6 +23,27 @@ export class DemandService {
     return this.http.get<Demand>(`http://localhost:8089/demandpart/voir/${idDemand}`)
   }
 
+   // """"""""""""""""""Afficher tout Etat Demande formation"""""""""""""
+   VoirToutEtat(): Observable<object>{
+    return this.http.get("http://localhost:8089/demandpart/enumValues")
+  }
+
+  // """"""""""""""""""Afficher tout Demande Encours"""""""""""""
+  VoirDemandEncours(): Observable<object>{
+    return this.http.get("http://localhost:8089/demandpart/regarder/encours")
+  }
+
+   // """"""""""""""""""Afficher tout Demande Accepter"""""""""""""
+   VoirDemandAccepter(): Observable<object>{
+    return this.http.get("http://localhost:8089/demandpart/regarder/accepter")
+  }
+
+   // """"""""""""""""""Afficher tout Demande Rejeter"""""""""""""
+   VoirDemandRejeter(): Observable<object>{
+    return this.http.get("http://localhost:8089/demandpart/regarder/rejeter")
+  }
+
+
    // """"""""""""""""""Afficher Demande formation par User """""""""""""
   VoirParUser(idDemand:number): Observable<object>{
     return this.http.get(`http://localhost:8089/demandpart/voirformation/${idDemand}`)
@@ -39,7 +60,7 @@ export class DemandService {
             "email": email,
             "type": type,
             "personnes":personnes,
-           
+
         }
       ];
       data.append('file',file )

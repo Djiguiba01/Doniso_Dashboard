@@ -2,60 +2,19 @@
 <html lang="en">
 <head>
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <title>Admin Dashboard - WebTech Gyan</title>
+   <title>Mon dashboard</title>
 
    <!-- iconscout cdn path -->
    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
 </head>
 <body>
-   <div class="sidebar" id="sidebar">
-      <div class="logo">
-         <h2>
-            <img src="assets/images/logo.png" alt="" style="border-radius: 50%; height: 60px;">
-            <!-- <i class="uil uil-apple-alt"></i> -->
-            Doniso
-         </h2>
-      </div>
-
-      <div class="sidebar-menu">
-         <ul>
-            <li routerLink="/Dashboard">
-               <i class="uil uil-dashboard"></i>
-               <span>Dashboard</span>
-            </li>
-            <li routerLink="/AjoutFormat">
-               <i class="uil uil-calendar-alt"></i>
-               <span>Ajout Formation</span>
-            </li>
-            <li routerLink="/Ajoututilisateur">
-               <i class="fa-solid fa-people-group"></i>
-               <span>Ajouter Utilisateur</span>
-            </li>
-            <li routerLink="/Gestionparticipant">
-               <i class="uil uil-calendar-alt"></i>
-               <span>Gestion Participant</span>
-            </li>
-            <li>
-               <i class="uil uil-shopping-bag"></i>
-               <span>Orders</span>
-            </li>
-            <!-- <li routerLink="/Menu">
-               <i class="uil uil-clipboard-notes"></i>
-               <span>Menu</span>
-            </li> -->
-            <li>
-               <i class="uil uil-signin"></i>
-               <span>Logout</span>
-            </li>
-         </ul>
-      </div>
-   </div>
+  <app-menu></app-menu>
 
    <div class="main-content" id="main-content">
       <header class="flex">
          <h2>
             <i class="uil uil-bars" id="menu-icon"></i>
-            Dashboard
+            Tableau de bord
          </h2>
 
          <div class="search-box">
@@ -66,7 +25,7 @@
          <div class="admin-box flex" >
             <img src="images/user.jpeg" width="30px" height="30px">
             <div>
-               <h4>Naseem Khan</h4>
+               <h4>Djiguiba</h4>
                <small>Admin</small>
             </div>
          </div>
@@ -120,13 +79,13 @@
                     <th>Date Debut</th>
                     <th>Status</th>
                 </tr>
-                
+
                 <tr *ngFor="let encours of formationencours |paginate: { itemsPerPage:4, currentPage: p}" >
                     <td>{{encours.titre}}</td>
                     <td>{{encours.lieu}}</td>
                     <td>{{encours.datedebut}}</td>
                     <td>
-                        <form style="  padding-right: 20px;" (ngSubmit)="ModifierEtat(encours)"> 
+                        <form style="  padding-right: 20px;" (ngSubmit)="ModifierEtat(encours)">
                             <select style="width:80px;  height: 25px; margin-top: 3px; margin-bottom: 20px;" name="etat"  [(ngModel)]="encours.etat" >
                               <option value="Sexe">Etat</option>
                               <option *ngFor="let lesEtat of mesEtats"  >{{lesEtat}}</option>
@@ -137,7 +96,7 @@
                 </tr>
                 <pagination-controls (pageChange)="p =$event"previousLabel="Précédent" nextLabel="Suivant" style="text-align: center; color: teal;"></pagination-controls>
             </table>
-            
+
             </div>
 <!-- :::::::::::: -->
             <div class="customers">
@@ -146,7 +105,7 @@
                   <button routerLink="/Ajoututilisateur">Ajouter <i class="uil uil-angle-right"></i></button>
                </div>
 
-               <table>  
+               <table>
                   <tr class="flex" *ngFor="let format of formateur |paginate: { itemsPerPage:4, currentPage: p}">
                         <td class="flex">
                             <img src="/assets/images/{{format.photo}}" width="30px" height="30px" alt="">
@@ -155,14 +114,14 @@
                                <small>{{format.profession}}</small>
                             </div>
                          </td>
-    
+
                          <td>
                             <i class="uil uil-user-circle"></i>
                             <i class="uil uil-calender"></i>
                             <i class="uil uil-phone-alt"></i>
                          </td>
                   </tr>
-                  <pagination-controls (pageChange)="p =$event"previousLabel="Précédent" nextLabel="Suivant" style="text-align: center; color: teal;"></pagination-controls>   
+                  <pagination-controls (pageChange)="p =$event"previousLabel="Précédent" nextLabel="Suivant" style="text-align: center; color: teal;"></pagination-controls>
                </table>
             </div>
 
@@ -183,14 +142,14 @@
                     <th>Date Fin</th>
                     <th>Status</th>
                 </tr>
-                
-                
+
+
                 <!-- <tr *ngFor="let encours of formationterminer |paginate: { itemsPerPage:15, currentPage: p}">
                     <td>{{encours.titre}}</td>
                     <td>{{encours.lieu}}</td>
                     <td>{{encours.datefin}}</td>
                     <td>
-                        <form style="  padding-right: 20px;"> 
+                        <form style="  padding-right: 20px;">
                             <select style="width:80px;  height: 25px; margin-top: 3px; margin-bottom: 20px;">
                               <option value="Sexe">Etat</option>
                               <option value="ffff" >ddddddd</option>
@@ -204,7 +163,7 @@
                   <td>{{encours.lieu}}</td>
                   <td>{{encours.datefin}}</td>
                   <td>
-                      <form style="  padding-right: 20px;" (ngSubmit)="ModifierEtat(encours)"> 
+                      <form style="  padding-right: 20px;" (ngSubmit)="ModifierEtat(encours)">
                           <select style="width:80px;  height: 25px; margin-top: 3px; margin-bottom: 20px;" name="etat"  [(ngModel)]="encours.etat" >
                             <option value="Sexe">Etat</option>
                             <option *ngFor="let lesEtat of mesEtats"  >{{lesEtat}}</option>
@@ -223,7 +182,7 @@
                   <button>Ajouter <i class="uil uil-angle-right"></i></button>
                </div>
 
-               <table>  
+               <table>
                   <tr class="flex" *ngFor="let format of auditeur |paginate: { itemsPerPage:10, currentPage: p}">
                         <td class="flex">
                             <img src="/assets/images/{{format.photo}}" width="30px" height="30px" alt="">
@@ -232,14 +191,14 @@
                                <small>{{format.profession}}</small>
                             </div>
                          </td>
-    
+
                          <td>
                             <i class="uil uil-user-circle"></i>
                             <i class="uil uil-calender"></i>
                             <i class="uil uil-phone-alt"></i>
                          </td>
                   </tr>
-                  <pagination-controls (pageChange)="p =$event"previousLabel="Précédent" nextLabel="Suivant" style="text-align: center; color: teal;"></pagination-controls>   
+                  <pagination-controls (pageChange)="p =$event"previousLabel="Précédent" nextLabel="Suivant" style="text-align: center; color: teal;"></pagination-controls>
                </table>
             </div>
 
