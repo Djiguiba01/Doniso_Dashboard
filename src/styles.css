@@ -43,7 +43,7 @@
   gap: 15px;
 }
 
-.sidebar-menu ul li{
+.sidebar-menu ul a{
   width: 100%;
   font-size: 16px;
   color: var(--text-white);
@@ -57,13 +57,14 @@
   gap: 16px;
 }
 
-.sidebar-menu ul li i{
+.sidebar-menu ul a i{
   font-size: 22px;
 }
 
-.sidebar-menu ul li:is(:hover,:first-child){
+.sidebar-menu ul a:is(:hover,a.active){
   background-color: var(--text-white);
   color: var(--main-color);
+  text-decoration: none;
 }
 
 .main-content{

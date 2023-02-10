@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
+import { Demand } from '../Class/demand';
 import { DemandService } from '../Service/demand.service';
 import { ParticipantService } from '../Service/participant.service';
 
@@ -17,7 +19,9 @@ export class GestiondemandeComponent implements OnInit{
   demandaccepter:any;
   demandrejeter:any;
   p:any;
-
+  idDemand:any;
+  etatparicipant:any;
+encours: any;
 
   constructor(
     private demand: DemandService ,
@@ -29,13 +33,6 @@ export class GestiondemandeComponent implements OnInit{
      // Voir Tout Etat :::::::::::::::::::::
      this.demand.VoirToutEtat().subscribe(data=>{
       this.mesEtats=data;
-      console.log(this.demandvoir);
-    });
-
-    // Voir Tout les Demandes :::::::::::::::::::::
-    this.demand.getDemand().subscribe(data=>{
-      this.demandvoir=data;
-      console.log(this.demandvoir);
     });
 
      // Voir Tout les Demandes Encours :::::::::::::::::::::
@@ -53,6 +50,26 @@ export class GestiondemandeComponent implements OnInit{
       this.demandrejeter=data;
     });
 
+        // Voir Tout les Demandes :::::::::::::::::::::
+        this.demand.getDemand().subscribe(data=>{
+          this.demandvoir=data;
+          // for(let former of this.demandvoir){
+          //   this.idDemand = former.idDemand
+          //   console.log("ghggg" +this.idDemand)
+          // }
+          console.log(this.demandvoir);
+        });
+
+  }
+
+
+  ModifierEtat(voir:any){
+    const statusformation =voir.auditstatus
+     console.log("status ----- "+voir.auditstatus)
+      // Changement Etat  Formation:::::::::::::::::
+      this.demand.postParticipantstatus(voir.idDemand,statusformation).subscribe(data=>{
+        this.etatparicipant=data;
+      });
   }
 
 }

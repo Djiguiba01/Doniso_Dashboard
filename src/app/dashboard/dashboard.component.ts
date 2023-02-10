@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { Route } from '@angular/router';
 import { FormationService } from '../Service/formation.service';
 import { UtilisateurService } from '../Service/utilisateur.service';
 import { StorageService } from '../_services/storage.service';
@@ -45,12 +44,9 @@ form:any={
   ngOnInit() {
 
     //::::::::::::::::::::::::::::::::::::::::: RECUPERATION DES ETATS
-
     this.format.getEtat().subscribe(data=>{
       this.mesEtats = data
     })
-
-
 
        // USER Voir tout les Admin:::::::::::::::::::::
        this.formateurserv.voirFormateuradmin().subscribe(data=>{
@@ -75,11 +71,6 @@ form:any={
     });
     this.idutilisateur = JSON.parse(localStorage.getItem("auth-user")!).id;
     console.log(localStorage.getItem("auth-user"))
-
-
-
-
-
 
     // Formations en t:::::::::::::::::
     this.format.getFormation().subscribe(data=>{
@@ -106,15 +97,16 @@ form:any={
         this.formationtout=data;
         for(let former of this.formationtout){
           this.idFormat = former.idFormat
-          console.log("ghggg" +this.idFormat)
+          // console.log("ghggg" +this.idFormat)
         }
       });
   }
-  
+
+
   ModifierEtat(encours:any){
     console.log("id ----- "+encours.idFormat)
     const statusformation =encours.etat
-    console.log("status ----- "+statusformation)
+    // console.log("status ----- "+statusformation)
       // Changement Etat  Formation:::::::::::::::::
       this.format.postFormationstatus(encours.idFormat,statusformation).subscribe(data=>{
         this.etatformation=data;

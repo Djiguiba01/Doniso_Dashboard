@@ -59,10 +59,10 @@
                     <td data-label="Age">{{voir.type}}</td>
                     <td data-label="Age">{{voir.personnes}}</td>
                     <td data-label="Staus">
-                      <form style="" >
-                        <select style="width:100px;  height: 33px; margin-top: 3px;" name="etat"  >
+                      <form (ngSubmit)="ModifierEtat(voir)" >
+                        <select style="width:100px;  height: 33px; margin-top: 3px;" name="etat"  [(ngModel)]="voir.auditstatus">
                           <option value="Sexe">Etat</option>
-                          <option *ngFor="let lesEtat of mesEtats"  >{{lesEtat}}</option>
+                          <option *ngFor="let lesEtat of mesEtats"   >{{lesEtat}}</option>
                         </select>
                         <button type="submit" style=" height: 36px; margin-left: 3%;">Changer</button>
                       </form>

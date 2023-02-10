@@ -38,11 +38,11 @@ export class FormationService {
       return this.http.get<Formation>(`http://localhost:8089/formation/voir/${idFormat}`)
     }
 
-     // """"""""""""""""""Etats Formations Encours """""""""""""
+     // """"""""""""""""""Mettre Etats Formations Encours """""""""""""
      postFormationstatus(idFormat:number,formationstatus:string): Observable<Formation>{
       return this.http.post<Formation>(`http://localhost:8089/formation/${formationstatus}/${idFormat}`,formationstatus)
     }
-  
+
 
          // """"""""""""""""""Ajouter les formation """""""""""""
       AjoutFormat(titre:any,lieu:any,description:any,contact:any,heure:any,emailformateur:any ,datedebut:any,datefin:any, idutilisateur:number, formateur:string,file:any): Observable<any>{
@@ -58,7 +58,7 @@ export class FormationService {
             "emailformateur": emailformateur,
             "datedebut": datedebut,
             "datefin": datefin
-            // "Etat": Etat,                                                                                                   
+            // "Etat": Etat,
         }
       ];
       data.append('formateur', formateur)
@@ -66,7 +66,7 @@ export class FormationService {
       return this.http.post(`http://localhost:8089/formation/ajout/${idutilisateur}`, data);
       }
 
-      // 
+      //
 
 
 

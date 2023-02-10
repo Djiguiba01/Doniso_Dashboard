@@ -2,10 +2,10 @@ export class Demand {
 
     idDemand: number=0;
     structure:string |undefined;
-    lieu:number |undefined;
+    lieu:string |undefined;
     email:string |undefined;
-    type:number |undefined;
-    personnes:string |undefined; 
-    photo:string |undefined; 
-    AuditDemand:Date |undefined; 
+    type:string |undefined;
+    personnes:string |undefined;
+    photo:string |undefined;
+    AuditDemand: string |undefined;
 }

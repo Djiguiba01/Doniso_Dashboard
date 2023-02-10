@@ -49,6 +49,14 @@ export class DemandService {
     return this.http.get(`http://localhost:8089/demandpart/voirformation/${idDemand}`)
   }
 
+  // """"""""""""""""""Changement Etats Participants """""""""""""
+  postParticipantstatus(idDemand:number,demandestatus:string): Observable<any>{
+
+    console.log("S "+demandestatus)
+    console.log("ID "+idDemand)
+    return this.http.post(`http://localhost:8089/demandpart/${demandestatus}/${idDemand}`,demandestatus)
+  }
+
       // """"""""""""""""""Ajouter demande formation par user """""""""""""
       ajoutDemandeformat(structure:any,lieu:any,email:any,type:any,personnes:any, file:any,iduser : number): Observable<any>{
         const data: FormData = new  FormData();
