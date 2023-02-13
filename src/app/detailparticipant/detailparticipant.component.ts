@@ -17,6 +17,7 @@ export class DetailparticipantComponent implements OnInit{
   participantencours:any;
   participantValid:any;
   participantNonValid:any;
+  etatparicipant:any;
 
   constructor(
     private participantService: ParticipantService,
@@ -26,7 +27,7 @@ export class DetailparticipantComponent implements OnInit{
   ngOnInit(): void {
 
      //::::::::::::::::::::::::::::::::::::::::: RECUPERATION DES ETATS
-     this.participantService.getEtat().subscribe(data=>{
+     this.participantService.VoirToutEtat().subscribe(data=>{
       this.mesEtats = data
     });
 
@@ -64,22 +65,18 @@ export class DetailparticipantComponent implements OnInit{
       }
     );
 
-     // Voir Participant par formation:::::::::::::::::
-    //  this.participantService.VoirParticipantParFormation(idPart).subscribe(data=>{
-    //   this.participformation=data;
-    // });
-
   }
 
-  // Méthode Etat participants
-  ModifierEtat(encours:any){
-    console.log("id ----- "+encours.idPart)
-    const statusformation =encours.etat
-    console.log("status ----- "+statusformation)
-      // Changement Etat  Formation:::::::::::::::::
-      // this.participantService.getParticipant(encours.idPart,statusformation).subscribe(data=>{
-      //   this.etatparticipant=data;
-      // });
+   // Méthode changement sur le button
+   ModifierEtat(voir: any) {
+    const demandestatus = voir.status;
+    console.log('status ----- ' + voir.status);
+    // Changement Etat  Formation:::::::::::::::::
+    this.participantService
+      .postParticipantstatus(voir.idPart, demandestatus)
+      .subscribe((data) => {
+        this.etatparicipant = data;
+      });
   }
 
 

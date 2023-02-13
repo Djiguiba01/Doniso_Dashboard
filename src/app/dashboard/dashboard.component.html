@@ -143,21 +143,6 @@
                     <th>Status</th>
                 </tr>
 
-
-                <!-- <tr *ngFor="let encours of formationterminer |paginate: { itemsPerPage:15, currentPage: p}">
-                    <td>{{encours.titre}}</td>
-                    <td>{{encours.lieu}}</td>
-                    <td>{{encours.datefin}}</td>
-                    <td>
-                        <form style="  padding-right: 20px;">
-                            <select style="width:80px;  height: 25px; margin-top: 3px; margin-bottom: 20px;">
-                              <option value="Sexe">Etat</option>
-                              <option value="ffff" >ddddddd</option>
-                            </select>
-                          </form>
-                    </td>
-                </tr> -->
-
                 <tr *ngFor="let encours of formationterminer |paginate: { itemsPerPage:4, currentPage: p}" >
                   <td>{{encours.titre}}</td>
                   <td>{{encours.lieu}}</td>

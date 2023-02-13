@@ -40,10 +40,6 @@ export class ParticipantService {
           return this.http.get<Participant>(`http://localhost:8089/participant/voirpart/${idPart}`)
         }
 
-              // """"""""""""""""""Affiche tout les Etats des participants"""""""""""""
-    getEtat(): Observable<object>{
-      return this.http.get("http://localhost:8089/participant/enumValues")
-    }
      // """"""""""""""""""Etats Partipants validation """""""""""""
      ValidationParticipant(idPart:number,participantstatus:string): Observable<Participant>{
       return this.http.post<Participant>(`http://localhost:8089/participant/valide/${idPart}`,participantstatus)
@@ -68,6 +64,18 @@ export class ParticipantService {
      getParticipantValidFormation(idPart:number): Observable<Participant>{
       return this.http.get<Participant>(`http://localhost:8089/participant/encoursparticip/VALIDER/${idPart}`)
     }
+
+     // """"""""""""""""""Afficher tout Etat Demande formation"""""""""""""
+   VoirToutEtat(): Observable<object>{
+    return this.http.get("http://localhost:8089/participant/enumValues")
+  }
+
+      // """"""""""""""""""Changement Etats Participants """""""""""""
+  postParticipantstatus(idPart:number,demandestatus:string): Observable<any>{
+    console.log("S "+demandestatus)
+    console.log("ID "+idPart)
+    return this.http.post(`http://localhost:8089/participant/${demandestatus}/${idPart}`,demandestatus)
+  }
 
 
 // Ajouter Participant:::::::::::::::::::::::::::::::::::::::

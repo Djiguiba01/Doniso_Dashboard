@@ -23,7 +23,7 @@ export class UtilisateurService {
   }
 
     // """"""""""""""""""Affiche tout les Auditeur"""""""""""""
-    voirFormateurauditeur(): Observable<object>{ 
+    voirFormateurauditeur(): Observable<object>{
       let valeur = "audiaaaaa"
       return this.http.get(`http://localhost:8089/utlisateursecond/roles/${valeur}`)
     }
@@ -32,5 +32,10 @@ export class UtilisateurService {
      voirToutUtilisateur(id:number): Observable<Utilisateur>{
       return this.http.get<Utilisateur>(`http://localhost:8089/utlisateursecond/voir/${id}`)
     }
- 
+
+       // """"""""""""""""""Afficher tout Etat """""""""""""
+   VoirToutEtat(): Observable<object>{
+    return this.http.get("http://localhost:8089/utlisateursecond/enumValues")
+  }
+
 }

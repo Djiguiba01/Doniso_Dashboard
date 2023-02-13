@@ -14,6 +14,7 @@ const httpOptions = {
 export class AuthService {
   constructor(private http: HttpClient) {}
 
+  // Connexion
   login(username: string, password: string): Observable<any> {
     return this.http.post(
       AUTH_API + 'connexion',
@@ -25,17 +26,21 @@ export class AuthService {
     );
   }
 
-  register(username: string, email: string, password: string, nom: String, contact:String, profession: String, sexe: String): Observable<any> {
+  // Inscription
+  register(username: string, email: string, password: string, nom: String, contact:String, profession: String, sexe: String,role:String): Observable<any> {
     const data = new FormData();
-    const donnee = [{
+    const donnee = [
+      {
         "username":username,
         "nomcomplet":nom,
         "contact":contact,
         "profession":profession,
         "sexe":sexe,
         "email":email,
-        "password":password
-        
+        "password":password,
+        "role":[
+          role
+           ]
     }]
     data.append('data', JSON.stringify(donnee).slice(1,JSON.stringify(donnee).lastIndexOf(']')));
 

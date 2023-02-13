@@ -5,7 +5,7 @@
     <!-- <div class="conteneur-logo">
       <img class="logo" src="../assets/images/logo.png">
     </div> -->
-  
+
     <!-- ::::::::::::::::::::::::::::::::::::::: -->
     <form
     *ngIf="!isSuccessful"
@@ -26,7 +26,7 @@
         #username="ngModel"
         [ngClass]="{ 'is-invalid': f.submitted && username.errors }"
          placeholder="Nom Utilisateur">
-  
+
          <div class="invalid-feedback" *ngIf="username.errors && f.submitted">
           <div *ngIf="username.errors['required']">Username is required</div>
           <div *ngIf="username.errors['minlength']">
@@ -37,7 +37,7 @@
           </div>
         </div>
       </div>
-  
+
       <!-- Nom Complet -->
       <div class="input">
         <input type="text"
@@ -48,10 +48,10 @@
         minlength="3"
         maxlength="20"
         #nom="ngModel"
-        [ngClass]="{ 'is-invalid': f.submitted && nom.errors }" 
+        [ngClass]="{ 'is-invalid': f.submitted && nom.errors }"
         placeholder="Nom complet">
       </div>
-  
+
       <!-- Profession -->
       <div class="input">
         <input type="text"
@@ -62,10 +62,10 @@
         minlength="3"
         maxlength="20"
         #profession="ngModel"
-        [ngClass]="{ 'is-invalid': f.submitted && profession.errors }" 
+        [ngClass]="{ 'is-invalid': f.submitted && profession.errors }"
         placeholder="profession">
       </div>
-      
+
        <!-- Contact -->
        <div class="input">
         <input type="text"
@@ -76,10 +76,10 @@
         minlength="3"
         maxlength="20"
         #contact="ngModel"
-        [ngClass]="{ 'is-invalid': f.submitted && contact.errors }" 
+        [ngClass]="{ 'is-invalid': f.submitted && contact.errors }"
         placeholder="contact">
       </div>
-  
+
       <!-- Email :::::::::::: -->
       <div class="input">
         <input type="email"
@@ -92,9 +92,12 @@
         [ngClass]="{ 'is-invalid': f.submitted && email.errors }"
         placeholder="Votre email">
       </div>
-  
+
+
+      <!-- <div class="photo" style="width: 30%; margin-left: -45%; margin-bottom: 3%;"> -->
       <!-- Genre:: -->
-      <form style="width:150px; margin-left: -58%; height: 37px; margin-top: 3px; margin-bottom: 20px;">
+      <label for="formFileSm" class="form-label" style="color: white; ">Genre</label>
+      <form style="width:150px; margin-left: -1%; height: 37px; margin-top: 3px; margin-bottom: 10px;">
         <select type="text"
           class="form-control"
           name="sexe"
@@ -111,23 +114,30 @@
           </form>
 
            <!-- Role:: -->
-      <form style="width:150px; margin-left: -58%; height: 37px; margin-top: 3px; margin-bottom: 20px;">
+      <label for="formFileSm" class="form-label" style="color: white; ">Role</label>
+      <form style="width:150px;  margin-left: -1%; height: 37px; margin-top: 3px; margin-bottom: 10px;">
         <select type="text"
           class="form-control"
-          name="sexe"
-          [(ngModel)]="form.sexe"
+          name="Role"
+          [(ngModel)]="form.Role"
           required
           minlength="3"
           maxlength="20"
-          #sexe="ngModel"
-          [ngClass]="{ 'is-invalid': f.submitted && sexe.errors }"
+          #ERole="ngModel"
+          [ngClass]="{ 'is-invalid': f.submitted && ERole.errors }"
           >
-          <option value="femme">Femme</option>
-            <option value="homme">Homme</option>
+          <option value="ROLE_USER">User</option>
+            <option value="formateur">Formateur</option>
+            <option value="admin">Admin</option>
           </select>
           </form>
-  
-  
+
+<!--
+             <label for="formFileSm" class="form-label" style="color: white; ">Photo</label>
+             <input class="form-control form-control-sm" id="formFileSm" type="file" /> -->
+
+           <!-- </div> -->
+
     <!-- Mot de passe -->
       <div class="input" style="margin-top: -19px;">
         <input type="password"
@@ -139,7 +149,7 @@
         #password="ngModel"
         [ngClass]="{ 'is-invalid': f.submitted && password.errors }"
         placeholder="Mot de passe">
-  
+
         <div class="invalid-feedback" *ngIf="password.errors && f.submitted">
           <div *ngIf="password.errors['required']">Password is required</div>
           <div *ngIf="password.errors['minlength']">
@@ -147,21 +157,20 @@
           </div>
         </div>
       </div>
-  
+
       <div class="conteneur-submit">
         <button class="envoyer-input" type="submit" expand="block">S'INSCRIRE</button>
       </div>
-  
+
       <!-- <div class="autres-options">
         <div style="font-size: 14px;" >
           Vous avez déjà un compte ? <span class="connexion" routerLink="/connexion">Connexion</span>
         </div>
       </div> -->
-  
+
     </div>
-  
+
   </form>
-  </div> 
+  </div>
 
   <!-- ::::::::::::::::::::::::::::::::::::::::::: -->
-  

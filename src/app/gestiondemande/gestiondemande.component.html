@@ -49,6 +49,7 @@
              <th>Type de Formation</th>
              <th>Nombre de personne</th>
              <th>Status</th>
+             <th>Delete</th>
             </tr>
         </thead>
         <tbody>
@@ -60,90 +61,95 @@
                     <td data-label="Age">{{voir.personnes}}</td>
                     <td data-label="Staus">
                       <form (ngSubmit)="ModifierEtat(voir)" >
-                        <select style="width:100px;  height: 33px; margin-top: 3px;" name="etat"  [(ngModel)]="voir.auditstatus">
+                        <select style="width:100px;  height: 33px; margin-top: 3px;" name="auditstatus"  [(ngModel)]="voir.auditstatus">
                           <option value="Sexe">Etat</option>
                           <option *ngFor="let lesEtat of mesEtats"   >{{lesEtat}}</option>
                         </select>
                         <button type="submit" style=" height: 36px; margin-left: 3%;">Changer</button>
                       </form>
                     </td>
+                    <td data-label="Age">
+                      <!-- (click)="removeItem(voir)" -->
+                      <button type="but" > Suprimer</button>
+                    </td>
+
               </tr>
 
         </tbody>
       </table>
       <pagination-controls (pageChange)="p =$event"previousLabel="Précédent" nextLabel="Suivant" style="text-align: center; color: teal;"></pagination-controls>
 
+<!-- ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::: -->
+ <div class="wrapper flex">
+  <div class="projects">
+     <div class="card-header flex">
+        <h3>Accepter</h3>
+        <button>{{demandaccepter.length}}</button>
+     </div>
 
+     <table>
+      <tr>
+        <th>Structure</th>
+        <th>Email</th>
+        <th>Personnes</th>
+        <th>Status</th>
+      </tr>
 
-  <!-- :::::::::::::::::::: -->
-  <!-- Participants Accepter et Rejeter:::::::::::::::::::: -->
-  <div class="wrapper flex">
-    <div class="projects">
-       <div class="card-header flex">
-          <h3>Accepter</h3>
-          <button>{{demandaccepter.length}}</button>
-       </div>
+      <tr *ngFor="let voir of demandaccepter |paginate: { itemsPerPage:2, currentPage: p}" >
+        <td>{{voir.structure}}</td>
+        <td>{{voir.email}}</td>
+        <td>{{voir.personnes}}</td>
+          <td>
+              <form style="  padding-right: 20px;" (ngSubmit)="ModifierEtat(voir)">
+                  <select style="width:80px;  height: 25px; margin-top: 3px; margin-bottom: 20px;" name="auditstatus"  [(ngModel)]="voir.auditstatus" >
+                    <option value="Sexe">Etat</option>
+                    <option *ngFor="let lesEtat of mesEtats"  >{{lesEtat}}</option>
+                  </select>
+                  <button type="submit">Changer</button>
+                </form>
+          </td>
+      </tr>
+  </table>
+  <pagination-controls (pageChange)="p =$event"previousLabel="Précédent" nextLabel="Suivant" style="text-align: center; color: teal;"></pagination-controls>
 
-       <table>
-        <tr>
-            <th>Structure</th>
-            <th>Email</th>
-            <th>Personnes</th>
-            <th>Status</th>
-        </tr>
+  </div>
 
-        <tr  *ngFor="let voiraccept of demandaccepter |paginate: { itemsPerPage:4, currentPage: p}">
-            <td>{{voiraccept.structure}}</td>
-            <td>{{voiraccept.email}}</td>
-            <td>{{voiraccept.personnes}}</td>
-            <td>
-                <form style="  padding-right: 20px;" >
-                    <select style="width:90px;  height: 25px; margin-top: 3px; margin-bottom: 20px;" name="etat" >
-                      <option value="Sexe">Etat</option>
-                      <option *ngFor="let lesEtat of mesEtats"  >{{lesEtat}}</option>
-                    </select>
-                    <button type="submit" style="height: 33px; margin-left: 25px;">Changer</button>
-                  </form>
-            </td>
-        </tr>
-    </table>
-    <pagination-controls (pageChange)="p =$event"previousLabel="Précédent" nextLabel="Suivant" style="text-align: center; color: teal;"></pagination-controls>
-
-
-    </div>
 <!-- :::::::::::: -->
-    <div class="customers">
-       <div class="card-header flex">
-          <h3>Rejeter</h3>
-          <button routerLink="/Ajoututilisateur">{{demandrejeter.length}}</button>
-       </div>
+  <div class="customers">
+     <div class="card-header flex">
+        <h3>Rejeter</h3>
+        <button routerLink="/Ajoututilisateur">{{demandrejeter.length}}</button>
+     </div>
 
-       <table>
-          <tr class="flex" *ngFor="let voirejet of demandrejeter |paginate: { itemsPerPage:4, currentPage: p}">
-                <td class="flex" >
-                    <img src="/assets/images/{{voirejet.images}}" width="30px" height="30px" alt="">
-                    <div>
-                       <h5>{{voirejet.structure}}</h5>
-                       <small>{{voirejet.email}}</small>
-                    </div>
-                 </td>
+     <table>
+        <tr class="flex" *ngFor="let voir of demandrejeter |paginate: { itemsPerPage:2, currentPage: r}">
+              <td class="flex">
+                  <img src="/assets/images/{{voir.photo}}" width="30px" height="30px" alt="">
+                  <div>
+                    <h5>{{voir.structure}}</h5>
+                    <small>{{voir.email}}</small>
+                 </div>
+               </td>
 
-                 <td>
-                  <form style="  margin-right: -10%;" >
-                    <select style="width:90px;  height: 25px; margin-top: 3px; margin-bottom: 20px;" name="etat" >
-                      <option value="Sexe">Etat</option>
-                      <option *ngFor="let lesEtat of mesEtats"  >{{lesEtat}}</option>
-                    </select>
-                    <button type="submit" style="height: 33px; margin-left: 5px;">Changer</button>
-                  </form>
-                 </td>
-          </tr>
-          <pagination-controls (pageChange)="p =$event"previousLabel="Précédent" nextLabel="Suivant" style="text-align: center; color: teal;"></pagination-controls>
-       </table>
-    </div>
+               <td>
+                <form style=" margin-left: 80px;" (ngSubmit)="ModifierEtat(voir)">
+                  <select style="width:80px;  height: 25px;" name="auditstatus"  [(ngModel)]="voir.auditstatus" >
+                    <option value="Sexe">Etat</option>
+                    <option *ngFor="let lesEtat of mesEtats"  >{{lesEtat}}</option>
+                  </select>
+                  <button type="submit" style="margin-left: 15px; height: 33px;">Changer</button>
+                </form>
+               </td>
+        </tr>
+     </table>
+             <pagination-controls (pageChange)="r =$event"previousLabel="Précédent" nextLabel="Suivant" style="text-align: center; color: teal;"></pagination-controls>
 
- </div>
+  </div>
 
+</div>
+
+
+<!-- ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::: -->
       </main>
    </div>
 

@@ -49,9 +49,8 @@ export class DemandService {
     return this.http.get(`http://localhost:8089/demandpart/voirformation/${idDemand}`)
   }
 
-  // """"""""""""""""""Changement Etats Participants """""""""""""
-  postParticipantstatus(idDemand:number,demandestatus:string): Observable<any>{
-
+  // """"""""""""""""""Changement Etats Demandes """""""""""""
+  postDemandestatus(idDemand:number,demandestatus:string): Observable<any>{
     console.log("S "+demandestatus)
     console.log("ID "+idDemand)
     return this.http.post(`http://localhost:8089/demandpart/${demandestatus}/${idDemand}`,demandestatus)
