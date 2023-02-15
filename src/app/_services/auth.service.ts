@@ -27,7 +27,7 @@ export class AuthService {
   }
 
   // Inscription
-  register(username: string, email: string, password: string, nom: String, contact:String, profession: String, sexe: String,role:String): Observable<any> {
+  register(username: string, email: string, password: string, nom: String, contact:String, profession: String, sexe: String,role:String,file:any): Observable<any> {
     const data = new FormData();
     const donnee = [
       {
@@ -41,8 +41,10 @@ export class AuthService {
         "role":[
           role
            ]
-    }]
+    }];
     data.append('data', JSON.stringify(donnee).slice(1,JSON.stringify(donnee).lastIndexOf(']')));
+     // Image::::::
+    data.append('file',file )
 
     return this.http.post(
       AUTH_API + 'inscription', data);

@@ -11,6 +11,7 @@ import { AuthService } from '../_services/auth.service';
 export class AjoututilisateurComponent implements OnInit {
 
   EtatsVoir:any;
+  file:any
 
   form: any = {
     username: null,
@@ -20,7 +21,8 @@ export class AjoututilisateurComponent implements OnInit {
     profession:null,
     contact: null,
     sexe: null,
-    Role:null
+    Role:null,
+    //file:null
   };
   isSuccessful = false;
   isSignUpFailed = false;
@@ -46,7 +48,7 @@ export class AjoututilisateurComponent implements OnInit {
   onSubmit(): void {
     const { username, email, password, nom, contact, profession, sexe, Role} = this.form;
      console.log("role"+Role);
-    this.authService.register(username, email, password, nom, contact, profession, sexe, Role).subscribe({
+    this.authService.register(username, email, password, nom, contact, profession, sexe, Role, this.file).subscribe({
       next: data => {
         console.log(data);
         this.isSuccessful = true;
@@ -55,11 +57,17 @@ export class AjoututilisateurComponent implements OnInit {
         this.route.navigateByUrl("/dashboard")
 
       },
+
       error: err => {
         this.errorMessage = err.error.message;
         this.isSignUpFailed = true;
       }
     });
   }
+      // Image:::::::::::::
+      fileChangm(event: any) {
+        this.file = event.target.files[0]
+        console.log(this.file)
+        }
 
 }
