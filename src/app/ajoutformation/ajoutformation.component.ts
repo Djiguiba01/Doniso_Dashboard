@@ -26,6 +26,20 @@ export class AjoutformationComponent implements OnInit{
   image: any;
   idutilisateur! : any
 
+  // Méthode pour vider le champs lors d'ajout
+  form1(){
+    this.titre= '',
+    this.lieu = '',
+    this.description= '',
+    this.contact= '',
+    this.heure= '',
+    this.emailformateur= '',
+    this.datedebut= '',
+    this.datefin= '',
+    this.nomformateur= '',
+    this.image= ''
+  }
+  
   // Formateur
   formateurs:any;
   nomformateur! :string
@@ -53,8 +67,8 @@ export class AjoutformationComponent implements OnInit{
       "heure": this.heure,
       "emailformateur": this.emailformateur,
       "datedebut": this.datedebut,
-      "datefin": this.datefin, 
-      // "Etat": Etat,                                                                                                   
+      "datefin": this.datefin,
+      // "Etat": Etat,
   }
 ]
 // Ajout image
@@ -69,6 +83,8 @@ recupererImage(event:any){
       this.tout=data;
       console.log("ajout"+this.tout)
 });
+// Vider le champs Quand on clique sur button
+this.form1();
 }
 
 }

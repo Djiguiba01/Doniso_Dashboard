@@ -10,6 +10,7 @@ import { ParticipantService } from '../Service/participant.service';
 export class DetailparticipantComponent implements OnInit{
 
   p:any;
+  p1:number=1
   participant : any;
   mesEtats:any
   etatparticipant:any;

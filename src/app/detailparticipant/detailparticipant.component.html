@@ -18,7 +18,7 @@
     </thead>
     <tbody>
 
-           <tr *ngFor="let voir of participant |paginate: { itemsPerPage:10, currentPage: p}">
+           <tr *ngFor="let voir of participant |paginate: { itemsPerPage:2, currentPage: p1, id:'pagination1'}, let i =index">
                 <td data-label="S.No">{{voir.idPart}}</td>
                 <td data-label="Name">{{voir.email}}</td>
                 <td data-label="Age">{{voir.nom}}</td>
@@ -40,7 +40,7 @@
     </tbody>
 
   </table>
-  <pagination-controls (pageChange)="p =$event"previousLabel="Précédent" nextLabel="Suivant" style="text-align: center; color: teal;"></pagination-controls>
+  <pagination-controls id="pagination1" (pageChange)="p1 =$event"previousLabel="Précédent" nextLabel="Suivant" style="text-align: center; color: teal;"></pagination-controls>
 
 
   <!-- ::::::::::::::::::::::: -->
@@ -60,7 +60,7 @@
             <th>Status</th>
         </tr>
 
-        <tr  *ngFor="let voir of participantValid |paginate: { itemsPerPage:6, currentPage: p}">
+        <tr  *ngFor="let voir of participantValid |paginate: { itemsPerPage:1, currentPage: p}">
             <td>{{voir.email}}</td>
             <td>{{voir.sexe}}</td>
             <td>{{voir.sexe}}</td>
@@ -85,7 +85,7 @@
        </div>
 
        <table>
-          <tr class="flex" *ngFor="let voir of participantNonValid |paginate: { itemsPerPage:5, currentPage: p}">
+          <tr class="flex" *ngFor="let voir of participantNonValid |paginate: { itemsPerPage:1, currentPage: p}">
                 <td class="flex">
                     <img src="/assets/images/djiguiba.jpg" width="30px" height="30px" alt="">
                     <div>
