@@ -43,6 +43,11 @@ export class FormationService {
       return this.http.post<Formation>(`http://localhost:8089/formation/${formationstatus}/${idFormat}`,formationstatus)
     }
 
+    // """"""""""""""""""Supprimer Demande formation """""""""""""
+  SupFormation(idDemand:number): Observable<object>{
+    return this.http.delete(`http://localhost:8089/formation/supprimer/${idDemand}`)
+  }
+
 
          // """"""""""""""""""Ajouter les formation """""""""""""
       AjoutFormat(titre:any,lieu:any,description:any,contact:any,heure:any,emailformateur:any ,datedebut:any,datefin:any, idutilisateur:number, formateur:string,file:any): Observable<any>{

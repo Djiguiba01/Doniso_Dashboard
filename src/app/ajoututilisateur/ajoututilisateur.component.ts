@@ -54,7 +54,7 @@ export class AjoututilisateurComponent implements OnInit {
         this.isSuccessful = true;
         this.isSignUpFailed = false;
         // Redirection page
-        this.route.navigateByUrl("/dashboard")
+        // this.route.navigateByUrl("/ajoututilisateur")
 
       },
 

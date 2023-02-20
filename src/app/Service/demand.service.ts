@@ -8,6 +8,10 @@ import { Demand } from '../Class/demand';
   providedIn: 'root'
 })
 export class DemandService {
+
+  // SupDemande(idDemand: any) {
+  //   throw new Error('Method not implemented.');
+  // }
   env = environment;
   idDemand:any;
 
@@ -54,6 +58,11 @@ export class DemandService {
     console.log("S "+demandestatus)
     console.log("ID "+idDemand)
     return this.http.post(`http://localhost:8089/demandpart/${demandestatus}/${idDemand}`,demandestatus)
+  }
+
+  // """"""""""""""""""Supprimer Demande formation """""""""""""
+  SupDemande(idDemand:number): Observable<object>{
+    return this.http.delete(`http://localhost:8089/demandpart/supprimer/${idDemand}`)
   }
 
       // """"""""""""""""""Ajouter demande formation par user """""""""""""

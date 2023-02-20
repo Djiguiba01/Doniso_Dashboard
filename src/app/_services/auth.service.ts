@@ -64,4 +64,5 @@ export class AuthService {
     const req = new HttpRequest('POST', AUTH_API + 'signout', {}, httpOptions);
       return this.http.request(req);
   }
+
 }

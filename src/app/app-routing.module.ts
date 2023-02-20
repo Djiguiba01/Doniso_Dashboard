@@ -11,6 +11,7 @@ import { GestionparticipantComponent } from './gestionparticipant/gestionpartici
 import { MenuComponent } from './menu/menu.component';
 import { GestiondemandeComponent } from './gestiondemande/gestiondemande.component';
 import { DetailparticipantComponent } from './detailparticipant/detailparticipant.component';
+import { FormationencoursComponent } from './formationencours/formationencours.component';
 
 const routes: Routes = [
   { path: '', component: ConnexionComponent },
@@ -21,8 +22,9 @@ const routes: Routes = [
    { path: 'Gestionparticipant', component: GestionparticipantComponent },
    { path: 'Gestiondemande', component: GestiondemandeComponent },
    { path: 'detailparticipant/:idPart', component: DetailparticipantComponent },
+   { path: 'formationencours', component: FormationencoursComponent },
    { path: 'Menu', component: MenuComponent },
-  
+
 ]
 
 @NgModule({

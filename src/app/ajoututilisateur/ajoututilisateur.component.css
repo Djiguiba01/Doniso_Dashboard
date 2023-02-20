@@ -32,7 +32,7 @@ ion-title{
   height: 25vh;
 }
 
-.input{
+.input {
   margin: auto;
   display: flex;
   justify-content: space-around;
@@ -76,6 +76,7 @@ ion-title{
   width: 100%;
   display: flex;
   justify-content: center;
+  height: 50px;
 }
 
 .connexion{
@@ -92,12 +93,17 @@ ion-title{
   margin-left: 25%;
   background-image: url("/assets/images/connexion.jpg");
   width: 70%;
-  height: 640px;
-  margin-top: 5%;
+  height: 680px;
+  margin-top: 1%;
   border-radius: 10px;
 }
 form{
 width: 80%;
 padding-top: -3%;
 margin-left: 12%;
+}
+
+.input, input
+{
+  height: 50px;
 }

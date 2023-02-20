@@ -16,6 +16,7 @@ import { GestionparticipantComponent } from './gestionparticipant/gestionpartici
 import { MenuComponent } from './menu/menu.component';
 import { GestiondemandeComponent } from './gestiondemande/gestiondemande.component';
 import { DetailparticipantComponent } from './detailparticipant/detailparticipant.component';
+import { FormationencoursComponent } from './formationencours/formationencours.component';
 
 
 @NgModule({
@@ -33,6 +34,7 @@ import { DetailparticipantComponent } from './detailparticipant/detailparticipan
     GestiondemandeComponent,
     GestiondemandeComponent,
     DetailparticipantComponent,
+    FormationencoursComponent,
   ],
   imports: [
     BrowserModule,

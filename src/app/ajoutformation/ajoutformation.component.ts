@@ -39,7 +39,7 @@ export class AjoutformationComponent implements OnInit{
     this.nomformateur= '',
     this.image= ''
   }
-  
+
   // Formateur
   formateurs:any;
   nomformateur! :string

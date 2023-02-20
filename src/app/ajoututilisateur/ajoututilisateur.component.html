@@ -28,12 +28,12 @@
          placeholder="Nom Utilisateur">
 
          <div class="invalid-feedback" *ngIf="username.errors && f.submitted">
-          <div *ngIf="username.errors['required']">Username is required</div>
+          <div *ngIf="username.errors['required']">Obligatoire</div>
           <div *ngIf="username.errors['minlength']">
-            Username must be at least 3 characters
+            Au moins 3 characters
           </div>
           <div *ngIf="username.errors['maxlength']">
-            Username must be at most 20 characters
+            maximum 20 characters
           </div>
         </div>
       </div>
@@ -96,8 +96,8 @@
 
       <!-- <div class="photo" style="width: 30%; margin-left: -45%; margin-bottom: 3%;"> -->
       <!-- Genre:: -->
-      <label for="formFileSm" class="form-label" style="color: white; ">Genre</label>
-      <form style="width:150px; margin-left: -1%; height: 37px; margin-top: 3px; margin-bottom: 10px;">
+      <!-- <label for="formFileSm" class="form-label" style="color: white;  margin-left: -57%;">Genre</label> -->
+      <form style="width:150px; margin-left: -57%; height: 37px; margin-top: 3px; margin-bottom: 10px;">
         <select type="text"
           class="form-control"
           name="sexe"
@@ -109,13 +109,13 @@
           [ngClass]="{ 'is-invalid': f.submitted && sexe.errors }"
           >
           <option value="femme">Femme</option>
-            <option value="homme">Homme</option>
+          <option value="homme">Homme</option>
           </select>
           </form>
 
            <!-- Role:: -->
-      <label for="formFileSm" class="form-label" style="color: white; ">Role</label>
-      <form style="width:150px;  margin-left: -1%; height: 37px; margin-top: 3px; margin-bottom: 10px;">
+      <!-- <label for="formFileSm" class="form-label" style="color: white;  margin-left: -57%;">Role</label> -->
+      <form style="width:150px;   margin-left: -57%; height: 37px; margin-top: 3px; margin-bottom: 10px;">
         <select type="text"
           class="form-control"
           name="Role"
@@ -132,8 +132,8 @@
           </select>
           </form>
 
-             <form action=""  style=" ">
-              <input type="file" name="file" (change)="fileChangm($event)"><br><br>
+             <form action=""  style="margin-left: 6%;">
+              <input type="file" name="file" (change)="fileChangm($event)" style="height:25%;"><br><br>
             </form>
 
            <!-- </div> -->
@@ -151,9 +151,9 @@
         placeholder="Mot de passe">
 
         <div class="invalid-feedback" *ngIf="password.errors && f.submitted">
-          <div *ngIf="password.errors['required']">Password is required</div>
+          <div *ngIf="password.errors['required']">Mot de passe obligatoire</div>
           <div *ngIf="password.errors['minlength']">
-            Password must be at least 6 characters
+            Au moins 6 characters
           </div>
         </div>
       </div>

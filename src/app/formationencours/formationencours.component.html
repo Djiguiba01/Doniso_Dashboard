@@ -1,0 +1,49 @@
+<body>
+  <app-menu></app-menu>
+
+  <div class="main-content" id="main-content">
+    <main>
+
+
+<table class="table">
+  <thead>
+    <tr>
+     <th>Titre</th>
+     <th>Lieu</th>
+     <th>Description</th>
+     <th>Date debut</th>
+     <th>Date fin</th>
+     <th>Status</th>
+     <th>Supprimer</th>
+    </tr>
+  </thead>
+  <tbody>
+      <tr *ngFor="let voir of formation ">
+          <td data-label="S.No">{{voir.titre}}</td>
+          <td data-label="Name">{{voir.lieu}}</td>
+          <td data-label="Age">{{voir.description}}</td>
+          <td data-label="Marks%">{{voir.datedebut}}</td>
+          <td data-label="Staus">{{voir.datefin}}</td>
+          <td data-label="Staus">
+            <form style="  padding-right: 20px;" (ngSubmit)="ModifierEtat(voir)">
+              <select style="width:80px;  height: 25px; margin-top: 3px; margin-bottom: 20px;" name="etat"  [(ngModel)]="voir.etat" >
+                <option value="Sexe">Etat</option>
+                <option *ngFor="let lesEtat of mesEtats"  >{{lesEtat}}</option>
+              </select>
+              <button type="submit">Changer</button>
+            </form>
+          </td>
+          <td data-label="Staus">
+            <button type="but" (click)="suppression(voir.idFormat)"> Suprimer</button>
+          </td>
+      </tr>
+
+  </tbody>
+</table>
+
+
+
+    </main>
+  </div>
+
+</body>

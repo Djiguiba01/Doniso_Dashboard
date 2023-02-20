@@ -22,8 +22,10 @@ export class GestiondemandeComponent implements OnInit {
   idDemand: any;
   etatparicipant: any;
   encours: any;
+  supDemand: any;
 
-  constructor(private demand: DemandService,
+  constructor(
+    private demand: DemandService,
     private fb: FormBuilder,
     ) {}
 
@@ -55,6 +57,15 @@ export class GestiondemandeComponent implements OnInit {
     });
   }
 
+  // Méthode Suppression
+  suppression(idDemand:any){
+    this.demand.SupDemande(idDemand).subscribe(data=>{
+      this.supDemand=data
+      console.log(data)
+  });
+
+}
+
   // Méthode changement sur le button
   ModifierEtat(voir: any) {
     const statusformation = voir.auditstatus;
@@ -65,7 +76,10 @@ export class GestiondemandeComponent implements OnInit {
       .subscribe((data) => {
         this.etatparicipant = data;
       });
+
   }
+
+}
 
   // :::::::::::
   // removeItem(element){
@@ -78,4 +92,4 @@ export class GestiondemandeComponent implements OnInit {
 
 
 
-}
+

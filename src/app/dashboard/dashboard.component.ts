@@ -1,6 +1,9 @@
+import { HttpRequest } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
 import { FormationService } from '../Service/formation.service';
 import { UtilisateurService } from '../Service/utilisateur.service';
+import { AuthService } from '../_services/auth.service';
 import { StorageService } from '../_services/storage.service';
 
 @Component({
@@ -8,6 +11,7 @@ import { StorageService } from '../_services/storage.service';
   templateUrl: './dashboard.component.html',
   styleUrls: ['./dashboard.component.css']
 })
+
 export class DashboardComponent implements OnInit{
 
 form:any={
@@ -39,6 +43,7 @@ form:any={
     private formateurserv: UtilisateurService,
     private format: FormationService,
     private storageService: StorageService,
+    private decon: AuthService,
     ) { }
 
   ngOnInit() {
@@ -112,5 +117,6 @@ form:any={
         this.etatformation=data;
       });
   }
+
 
 }
