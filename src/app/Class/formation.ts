@@ -12,6 +12,8 @@ export class Formation {
     datefin:Date |undefined;
     image:string |undefined;
     createur:string |undefined;
+    LieuFormation:string |undefined;
     Etat:string |undefined;
+
 
 }

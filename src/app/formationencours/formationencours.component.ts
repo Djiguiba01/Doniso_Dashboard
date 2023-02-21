@@ -25,10 +25,13 @@ export class FormationencoursComponent implements OnInit{
         this.mesEtats = data
       })
 
+      // Actualisation appel méthode  étape 2/3::::::::::::::::::::::
+      this.formationsVenir();//:::::::
+
      // Formations en INITIER:::::::::::::::::
-     this.format.getFormationavenir().subscribe(data=>{
-      this.formation=data;
-    });
+    //  this.format.getFormationavenir().subscribe(data=>{
+    //   this.formation=data;
+    // });
 
   }
 
@@ -40,6 +43,15 @@ export class FormationencoursComponent implements OnInit{
     });
    }
 
+    // Actualisation méthode étape 1/3::::::::::::::::::::::::::::::::::::
+
+  // Formations en cours:::::::::::::::::
+  formationsVenir() {
+     this.format.getFormationavenir().subscribe(data=>{
+      this.formation=data;
+    });
+  }
+
    ModifierEtat(voir:any){
     console.log("id ----- "+voir.idFormat)
     const statusformation =voir.etat
@@ -47,6 +59,8 @@ export class FormationencoursComponent implements OnInit{
       // Changement Etat  Formation:::::::::::::::::
       this.format.postFormationstatus(voir.idFormat,statusformation).subscribe(data=>{
         this.etatformation=data;
+        // Actualisation au niveau du button d'envoye étape 3/3:::::::::::::::::::::::
+        this.formationsVenir();//:::::::::
       });
   }
 

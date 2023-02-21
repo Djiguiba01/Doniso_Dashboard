@@ -74,7 +74,7 @@
 
           <div class="user-input-box">
             <label for="fullName">Formateur</label>
-          <form style="">
+          <form >
             <select style="width:150px; height: 30px; margin-top: 3px;" [(ngModel)]="nomformateur" [ngModelOptions]="{standalone: true}">
               <!-- <option value="Sexe">Formateur</option> -->
               <option value="{{affiche.username}}"  *ngFor="let affiche of formateurs" >{{affiche.username}}</option>
@@ -82,6 +82,16 @@
             </select>
           </form>
         </div>
+
+        <form style="margin-top: 3%;  padding-right: 20px;">
+          <select style="width:150px; margin-left: -22%; height: 25px; margin-top: 10px;" [(ngModel)]="etatlieu" name="etatlieu">
+            <option value="etatlieu">Choisissez le lieu :</option>
+            <option value="0">Présidentiell</option>
+            <option value="1">En_ligne</option>
+          </select>
+        </form>
+
+
 
         <div class="user-input-box">
           <form action=""  style="margin-top: 3%; ">

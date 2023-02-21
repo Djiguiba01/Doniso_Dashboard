@@ -20,11 +20,13 @@ export class AjoutformationComponent implements OnInit{
     emailformateur!: any;
     datedebut!: any;
     datefin!: any;
+    etatlieu: any;
     // image: any;
     Etat: any;
     tout:any
   image: any;
   idutilisateur! : any
+  LieuFormat: any;
 
   // Méthode pour vider le champs lors d'ajout
   form1(){
@@ -36,7 +38,7 @@ export class AjoutformationComponent implements OnInit{
     this.emailformateur= '',
     this.datedebut= '',
     this.datefin= '',
-    this.nomformateur= '',
+    this.etatlieu,
     this.image= ''
   }
 
@@ -44,7 +46,11 @@ export class AjoutformationComponent implements OnInit{
   formateurs:any;
   nomformateur! :string
 
-  constructor(private formatioservice: FormationService, private formateurserv: UtilisateurService,private storageService: StorageService) {}
+  constructor(
+    private formatioservice: FormationService,
+    private formateurserv: UtilisateurService,
+    private storageService: StorageService
+    ) {}
 
   ngOnInit() {
     // Voir formateurs:::::::::::::::::::::
@@ -54,6 +60,13 @@ export class AjoutformationComponent implements OnInit{
     });
     this.idutilisateur = JSON.parse(localStorage.getItem("auth-user")!).id;
     console.log(localStorage.getItem("auth-user"))
+
+     // Voir Lieu Formation:::::::::::::::::::::
+     this.formatioservice.VoirLieuFormation().subscribe(data=>{
+      this.LieuFormat=data;
+      console.log(this.formateurs);
+    });
+
   }
 
   // Ajout formation::::::::::::::::::::::::::::
@@ -68,6 +81,7 @@ export class AjoutformationComponent implements OnInit{
       "emailformateur": this.emailformateur,
       "datedebut": this.datedebut,
       "datefin": this.datefin,
+      // "LieuFormation": this.LieuFormation,
       // "Etat": Etat,
   }
 ]
@@ -79,7 +93,7 @@ recupererImage(event:any){
   // Création méthode Sur le button formation
   Ajoutformation(){
     console.log(this.nomformateur)
-    this.formatioservice.AjoutFormat(this.titre,this.lieu,this.description,this.contact,this.heure,this.emailformateur,this.datedebut,this.datefin,this.idutilisateur,this.nomformateur,this.image).subscribe(data =>{
+    this.formatioservice.AjoutFormat(this.titre,this.lieu,this.description,this.contact,this.heure,this.emailformateur,this.datedebut,this.datefin, this.etatlieu,this.idutilisateur,this.nomformateur,this.image).subscribe(data =>{
       this.tout=data;
       console.log("ajout"+this.tout)
 });

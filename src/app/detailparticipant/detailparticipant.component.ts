@@ -27,6 +27,9 @@ export class DetailparticipantComponent implements OnInit{
 
   ngOnInit(): void {
 
+    // Actualisation appel méthode  étape 2/3::::::::::::::::::::::
+     this.participantEncour();//:::::::
+
      //::::::::::::::::::::::::::::::::::::::::: RECUPERATION DES ETATS
      this.participantService.VoirToutEtat().subscribe(data=>{
       this.mesEtats = data
@@ -34,12 +37,12 @@ export class DetailparticipantComponent implements OnInit{
 
      // Voir Encours Participants d'une Formations en fonction de son status:::::::::::::::::
      const idPart = +this.route.snapshot.params["idPart"];
-    this.participantService.getParticipantEncoursFormation(idPart).subscribe(
-      (data) => {
-        this.participantencours = data;
-        console.log(this.participant);
-      }
-    );
+    // this.participantService.getParticipantEncoursFormation(idPart).subscribe(
+    //   (data) => {
+    //     this.participantencours = data;
+    //     console.log(this.participant);
+    //   }
+    // );
 
     // Voir Participants Non_Valider d'une Formations en fonction de son status:::::::::::::::::
     this.participantService.getParticipantNonFormation(idPart).subscribe(
@@ -68,6 +71,19 @@ export class DetailparticipantComponent implements OnInit{
 
   }
 
+   // Actualisation méthode étape 1/3::::::::::::::::::::::::::::::::::::
+
+  // Formations en cours:::::::::::::::::
+  participantEncour() {
+    const idPart = +this.route.snapshot.params["idPart"];
+    this.participantService.getParticipantEncoursFormation(idPart).subscribe(
+      (data) => {
+        this.participantencours = data;
+        console.log(this.participant);
+      }
+    );
+  }
+
    // Méthode changement sur le button
    ModifierEtat(voir: any) {
     const demandestatus = voir.status;
@@ -77,6 +93,8 @@ export class DetailparticipantComponent implements OnInit{
       .postParticipantstatus(voir.idPart, demandestatus)
       .subscribe((data) => {
         this.etatparicipant = data;
+        // Actualisation au niveau du button d'envoye étape 3/3:::::::::::::::::::::::
+        this.participantEncour();//:::::::::
       });
   }
 
