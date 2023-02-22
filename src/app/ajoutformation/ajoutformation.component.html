@@ -5,7 +5,8 @@
       <h1 class="form-title">Ajouter une formation</h1>
       <form action="#" >
         <div class="main-user-info">
-          <div class="user-input-box">
+
+          <!-- <div class="user-input-box">
             <label for="fullName">Thème formation</label>
             <input type="text"
                     id="fullName"
@@ -14,7 +15,19 @@
                     [(ngModel)]="titre" name="titre"
                     required
                     />
+          </div> -->
+          <!-- ;;;;;;;;;; -->
+          <div class="user-input-box">
+            <label for="fullName">moduletitre</label>
+            <input type="text"
+                    id="fullName"
+                    name="fullName"
+                    placeholder="Thème "
+                    [(ngModel)]="titre" name="titre"
+                    required
+                    />
           </div>
+          <!-- :::::::::::::: -->
           <div class="user-input-box">
             <label for="username">Description</label>
             <input type="text"
@@ -23,13 +36,13 @@
                     placeholder="Description"
                     [(ngModel)]="description" name="description"/>
           </div>
-          <div class="user-input-box">
+          <!-- <div class="user-input-box">
             <label for="email">Email</label>
             <input type="email"
                     id="email"
                     name="email"
                     placeholder="Enter Email"/>
-          </div>
+          </div> -->
           <div class="user-input-box">
             <label for="phoneNumber">Contact</label>
             <input type="text"
@@ -38,14 +51,14 @@
                     placeholder="Contact"
                     [(ngModel)]="contact" name="contact"/>
           </div>
-          <div class="user-input-box">
+          <!-- <div class="user-input-box">
             <label for="phoneNumber">Lieu</label>
             <input type="text"
                     id="phoneNumber"
                     name="phoneNumber"
                     placeholder="Lieu"
                     [(ngModel)]="lieu" name="lieu"/>
-          </div>
+          </div> -->
 
           <div class="user-input-box">
             <label for="fullName">Heure</label>
@@ -53,7 +66,7 @@
                     id="fullName"
                     name="fullName"
                     placeholder="Heure"
-                    [(ngModel)]="heure" name="heure"/>
+                    [(ngModel)]="heuretemps" name="heuretemps"/>
           </div>
           <div class="user-input-box">
             <label for="fullName">Date debut</label>

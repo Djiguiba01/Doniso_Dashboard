@@ -50,17 +50,18 @@ export class FormationService {
 
 
          // """"""""""""""""""Ajouter les formation """""""""""""
-      AjoutFormat(titre:any,lieu:any,description:any,contact:any,heure:any,emailformateur:any ,datedebut:any,datefin:any, etatlieu:any, idutilisateur:number, formateur:string,file:any): Observable<any>{
+      AjoutFormat(titre:any,moduletitre:any,lieu:any,description:any,contact:any,heuretemps:any,datedebut:any,datefin:any, etatlieu:any, idutilisateur:number, formateur:string,file:any): Observable<any>{
         const data: FormData = new  FormData();
         data.append('file', file);
         let form=[
           {
             "titre": titre,
+            "moduletitre": moduletitre,
             "lieu": lieu,
             "description": description,
             "contact": contact,
-            "heure":heure,
-            "emailformateur": emailformateur,
+            "heuretemps":heuretemps,
+            // "emailformateur": emailformateur,
             "datedebut": datedebut,
             "datefin": datefin,
             "etatlieu": etatlieu

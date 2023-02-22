@@ -13,10 +13,12 @@ export class AjoutformationComponent implements OnInit{
   // Formation
     idFormat:any;
     titre!: any;
+    moduletitre!:any;
     lieu!: any;
     description!: any;
     contact!: any;
-    heure!:any;
+    // heure!:any;
+    heuretemps!: any;
     emailformateur!: any;
     datedebut!: any;
     datefin!: any;
@@ -31,10 +33,12 @@ export class AjoutformationComponent implements OnInit{
   // Méthode pour vider le champs lors d'ajout
   form1(){
     this.titre= '',
+    this.moduletitre= '',
     this.lieu = '',
     this.description= '',
     this.contact= '',
-    this.heure= '',
+    // this.heure= '',
+    this.heuretemps= '',
     this.emailformateur= '',
     this.datedebut= '',
     this.datefin= '',
@@ -74,11 +78,13 @@ export class AjoutformationComponent implements OnInit{
   form=[
     {
       "titre": this.titre,
+      "moduletitre":this.moduletitre,
       "lieu": this.lieu,
       "description": this.description,
       "contact": this.contact,
-      "heure": this.heure,
-      "emailformateur": this.emailformateur,
+      // "heure": this.heure,
+      "heuretemps": this.heuretemps,
+      // "emailformateur": this.emailformateur,
       "datedebut": this.datedebut,
       "datefin": this.datefin,
       // "LieuFormation": this.LieuFormation,
@@ -93,7 +99,7 @@ recupererImage(event:any){
   // Création méthode Sur le button formation
   Ajoutformation(){
     console.log(this.nomformateur)
-    this.formatioservice.AjoutFormat(this.titre,this.lieu,this.description,this.contact,this.heure,this.emailformateur,this.datedebut,this.datefin, this.etatlieu,this.idutilisateur,this.nomformateur,this.image).subscribe(data =>{
+    this.formatioservice.AjoutFormat(this.titre,this.moduletitre,this.lieu,this.description,this.contact,this.heuretemps,this.datedebut,this.datefin, this.etatlieu,this.idutilisateur,this.nomformateur,this.image).subscribe(data =>{
       this.tout=data;
       console.log("ajout"+this.tout)
 });
