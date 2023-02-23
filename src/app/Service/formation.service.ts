@@ -88,4 +88,22 @@ export class FormationService {
     return this.http.get("http://localhost:8089/formation/lieuformation")
   }
 
+  EtatFormationFormateur(): Observable<object>{
+    return this.http.get("http://localhost:8089/formation/voirvalidformateur")
+  }
+   // """"""""""""""""""Mettre Etats Formations Encours """""""""""""
+   postFormationFormateur(idFormat:number,formationstatus:string): Observable<Formation>{
+    return this.http.post<Formation>(`http://localhost:8089/formation/VALIDER/${idFormat}`,formationstatus)
+  }
+
+      // """"""""""""""""""Afficher etat  formation formateur"""""""""""""
+      VoiretatFormationformateurv(): Observable<object>{
+        return this.http.get("http://localhost:8089/formation/regardetat/valider")
+      }
+
+      // """"""""""""""""""Afficher etat  formation formateur"""""""""""""
+      VoiretatFormationformateurn(): Observable<object>{
+        return this.http.get("http://localhost:8089/formation/regardetat/nonvalider")
+      }
+
 }

@@ -4,7 +4,6 @@ export class Formation {
     titre:string |undefined;
     moduletitre:string |undefined;
     module:string |undefined;
-    lieu:number |undefined;
     description:string |undefined;
     contact:number |undefined;
     // heure:string |undefined;
@@ -15,6 +14,7 @@ export class Formation {
     image:string |undefined;
     createur:string |undefined;
     LieuFormation:string |undefined;
+    ValidFormateur:string |undefined;
     Etat:string |undefined;
 
 

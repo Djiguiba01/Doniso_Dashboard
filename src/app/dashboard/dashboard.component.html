@@ -82,7 +82,7 @@
 
                 <tr *ngFor="let encours of formationencours |paginate: { itemsPerPage:4, currentPage: p}" >
                     <td>{{encours.titre}}</td>
-                    <td>{{encours.lieu}}</td>
+                    <td>{{encours.etatlieu}}</td>
                     <td>{{encours.datedebut}}</td>
                     <td>
                         <form style="  padding-right: 20px;" (ngSubmit)="ModifierEtat(encours)">
@@ -102,7 +102,7 @@
             <div class="customers">
                <div class="card-header flex">
                   <h3>Formateurs</h3>
-                  <button routerLink="/Ajoututilisateur">Ajouter <i class="uil uil-angle-right"></i></button>
+                  <button >Ajouter <i class="uil uil-angle-right"></i></button>
                </div>
 
                <table>
@@ -132,7 +132,7 @@
             <div class="projects">
                <div class="card-header flex">
                   <h3>Formations Terminer</h3>
-                  <button>See all <i class="uil uil-angle-right"></i></button>
+                  <button routerLink="/validationformateur">Ajouter <i class="uil uil-angle-right"></i></button>
                </div>
 
                <table>

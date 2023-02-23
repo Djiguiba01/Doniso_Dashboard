@@ -12,6 +12,7 @@ import { MenuComponent } from './menu/menu.component';
 import { GestiondemandeComponent } from './gestiondemande/gestiondemande.component';
 import { DetailparticipantComponent } from './detailparticipant/detailparticipant.component';
 import { FormationencoursComponent } from './formationencours/formationencours.component';
+import { ValidationformateurComponent } from './validationformateur/validationformateur.component';
 
 const routes: Routes = [
   { path: '', component: ConnexionComponent },
@@ -23,6 +24,7 @@ const routes: Routes = [
    { path: 'Gestiondemande', component: GestiondemandeComponent },
    { path: 'detailparticipant/:idPart', component: DetailparticipantComponent },
    { path: 'formationencours', component: FormationencoursComponent },
+   { path: 'validationformateur', component: ValidationformateurComponent },
    { path: 'Menu', component: MenuComponent },
 
 ]

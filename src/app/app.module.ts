@@ -17,6 +17,7 @@ import { MenuComponent } from './menu/menu.component';
 import { GestiondemandeComponent } from './gestiondemande/gestiondemande.component';
 import { DetailparticipantComponent } from './detailparticipant/detailparticipant.component';
 import { FormationencoursComponent } from './formationencours/formationencours.component';
+import { ValidationformateurComponent } from './validationformateur/validationformateur.component';
 
 
 @NgModule({
@@ -35,6 +36,7 @@ import { FormationencoursComponent } from './formationencours/formationencours.c
     GestiondemandeComponent,
     DetailparticipantComponent,
     FormationencoursComponent,
+    ValidationformateurComponent,
   ],
   imports: [
     BrowserModule,
