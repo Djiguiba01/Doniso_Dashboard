@@ -18,6 +18,7 @@ import { GestiondemandeComponent } from './gestiondemande/gestiondemande.compone
 import { DetailparticipantComponent } from './detailparticipant/detailparticipant.component';
 import { FormationencoursComponent } from './formationencours/formationencours.component';
 import { ValidationformateurComponent } from './validationformateur/validationformateur.component';
+import { EssaiComponent } from './essai/essai.component';
 
 
 @NgModule({
@@ -37,6 +38,7 @@ import { ValidationformateurComponent } from './validationformateur/validationfo
     DetailparticipantComponent,
     FormationencoursComponent,
     ValidationformateurComponent,
+    EssaiComponent,
   ],
   imports: [
     BrowserModule,
