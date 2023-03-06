@@ -44,7 +44,7 @@
         <thead>
             <tr>
              <th>Structure</th>
-             <th>Localité</th>
+             <th>Lieu</th>
              <th>Email</th>
              <th>Type de Formation</th>
              <th>Nombre de personne</th>
@@ -55,7 +55,7 @@
         <tbody>
               <tr *ngFor="let voir of demandencours |paginate: { itemsPerPage:4, currentPage: p}">
                     <td data-label="S.No">{{voir.structure}}</td>
-                    <td data-label="Name">{{voir.lieu}}</td>
+                    <td data-label="Name">{{voir.etatligne}}</td>
                     <td data-label="Age">{{voir.email}}</td>
                     <td data-label="Age">{{voir.type}}</td>
                     <td data-label="Age">{{voir.personnes}}</td>

@@ -18,7 +18,7 @@
           </div> -->
           <!-- ;;;;;;;;;; -->
           <div class="user-input-box">
-            <label for="fullName">moduletitre</label>
+            <label for="fullName">Thème</label>
             <input type="text"
                     id="fullName"
                     name="fullName"
@@ -95,14 +95,19 @@
             </select>
           </form>
         </div>
+        
 
-        <form style="margin-top: 3%;  padding-right: 20px;">
+        <div class="user-input-box">
+          <label for="fullName">Lieu</label>
+        <form style=" padding-right: 100px;">
           <select style="width:150px; margin-left: -22%; height: 25px; margin-top: 10px;" [(ngModel)]="etatlieu" name="etatlieu">
             <option value="etatlieu">Choisissez le lieu :</option>
-            <option value="0">Présidentiell</option>
+            <option value="0">Présidentielle</option>
             <option value="1">En_ligne</option>
           </select>
         </form>
+      </div>
+
 
 
 

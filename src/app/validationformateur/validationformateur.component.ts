@@ -16,6 +16,7 @@ export class ValidationformateurComponent implements OnInit{
   formationsTerminer:any;
   formationsEncour:any;
   mesEtats:any;
+  mesformaformateur:any;
 
 constructor(
   private formateurserv: UtilisateurService,
@@ -24,6 +25,10 @@ constructor(
 
 
   ngOnInit(): void {
+
+      // Actualisation appel méthode  étape 2/3::::::::::::::::::::::
+      this.formationsNonValid();//:::::::
+      this.formationsValid();//:::::::
 
     // this.lesFormations();
      // Formations Par ID:::::::::::::::::
@@ -42,16 +47,38 @@ constructor(
 
 
       //  Voir valide Formation formateurs:::::::::::::::::
-      this.service.VoiretatFormationformateurv().subscribe(data=>{
-        this.formatformateurvalide=data;
-      });
+      // this.service.VoiretatFormationformateurv().subscribe(data=>{
+      //   this.formatformateurvalide=data;
+      // });
 
        //  Voir non valide Formation formateurs:::::::::::::::::
-       this.service.VoiretatFormationformateurn().subscribe(data=>{
-        this.formatformateurnonvalide=data;
+      //  this.service.VoiretatFormationformateurn().subscribe(data=>{
+      //   this.formatformateurnonvalide=data;
+      // });
+      
+
+      //  Voir non valide Formation formateurs:::::::::::::::::
+      this.service.EtatFormationFormateur().subscribe(data=>{
+        this.mesformaformateur=data;
       });
+      
 
   }
+
+    // Actualisation méthode étape 1/3::::::::::::::::::::::::::::::::::::
+       //  Voir non valide Formation formateurs:::::::::::::::::
+       formationsNonValid() {
+        this.service.VoiretatFormationformateurn().subscribe(data=>{
+          this.formatformateurnonvalide=data;
+        });
+      }
+      //  Voir non valide Formation formateurs:::::::::::::::::
+      formationsValid() {
+        this.service.VoiretatFormationformateurv().subscribe(data=>{
+          this.formatformateurvalide=data;
+        });
+      }
+
 
     // Méthode Changement d'état::::::::::::::::::::::::::::
     ModifierEtat(voir: any) {
@@ -63,8 +90,8 @@ constructor(
         .subscribe((data) => {
           this.etatformation = data;
           // Actualisation au niveau du button d'envoye étape 3/3:::::::::::::::::::::::
-          this.formationsTerminer();//:::::::::
-          this.formationsEncour();//:::::::
+          this.formationsNonValid();//:::::::::
+          this.formationsValid();//:::::::
         });
     }
 

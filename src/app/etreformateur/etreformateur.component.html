@@ -1,0 +1,49 @@
+<body>
+    <app-menu></app-menu>
+  
+    <div class="main-content" id="main-content">
+      <main>
+<h3 style="text-align: center; margin-bottom: -10px;">La demande total est : {{etformateur.length}}</h3>
+  
+  <table class="table">
+    <thead>
+      <tr>
+       <th>N°</th>
+       <th>Email</th>
+       <th>Cv</th>
+       <th>Status</th>
+          <!--  <th>Supprimer</th> -->
+      </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let voir of etformateur ">
+            <td data-label="S.No">{{voir.idetreform}}</td>
+            <td data-label="Name">{{voir.email}}</td>
+            <td data-label="Name">
+                <img src="../../assets/images/{{voir.imagecv}}" alt="" style="height: 80px; width: 150px;">
+            </td>
+            <td data-label="Staus">
+              <form style="  padding-right: 20px;">
+                <select style="width:80px;  height: 25px; margin-top: 3px; margin-bottom: 20px;" name="etat" >
+                  <option value="Sexe">Etat</option>
+                  <option >Accepter</option>
+                  <option >Rejeter</option>
+                </select>
+                <button type="submit">Changer</button>
+              </form>
+            </td>
+            <!-- <td data-label="Staus">
+              <button type="but" (click)="suppression(voir.idFormat)"> Suprimer</button>
+            </td> -->
+        </tr>
+  
+    </tbody>
+  </table>
+  
+  
+  
+      </main>
+    </div>
+  
+  </body>
+  

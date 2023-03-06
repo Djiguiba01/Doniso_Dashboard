@@ -12,8 +12,7 @@
     <tr>
      <th>Titre</th>
      <th>Lieu</th>
-     <th>Description</th>
-     <th>Date debut</th>
+     <th>Date fin</th>
      <th>Validation</th>
       <th>Status</th>
      <!-- <th>Supprimer</th> -->
@@ -23,14 +22,13 @@
       <tr *ngFor="let voir of formatformateurnonvalide">
           <td data-label="S.No">{{voir.titre}}</td>
           <td data-label="Name">{{voir.etatlieu}}</td>
-          <td data-label="Age">{{voir.description}}</td>
           <td data-label="Marks%">{{voir.datefin}}</td>
           <td data-label="Staus" style="color: teal; font-weight: bold;">{{voir.validFormateur}}</td>
           <td data-label="Staus">
-            <form style="  padding-right: 20px;" (ngSubmit)="ModifierEtat(voir)">
+            <form style="  padding-right: 20px;" (ngSubmit)="ModifierEtat(voir)"  >
               <select style="width:80px;  height: 25px; margin-top: 3px; margin-bottom: 20px;" name="etat"  [(ngModel)]="voir.etat" >
                 <option value="Sexe">Etat</option>
-                <option *ngFor="let lesEtat of mesEtats"  >{{lesEtat}}</option>
+                <option *ngFor="let lesEtat of mesformaformateur"  >{{lesEtat}}</option>
               </select>
               <button type="submit">Changer</button>
             </form>
@@ -56,8 +54,7 @@
     <tr>
      <th>Titre</th>
      <th>Lieu</th>
-     <th>Description</th>
-     <th>Date debut</th>
+     <th>Date fin</th>
      <th>Validation</th>
       <th>Status</th>
      <!-- <th>Supprimer</th> -->
@@ -67,14 +64,13 @@
       <tr *ngFor="let voir of formatformateurvalide">
           <td data-label="S.No">{{voir.titre}}</td>
           <td data-label="Name">{{voir.etatlieu}}</td>
-          <td data-label="Age">{{voir.description}}</td>
           <td data-label="Marks%">{{voir.datefin}}</td>
           <td data-label="Staus" style="color: teal; font-weight: bold;">{{voir.validFormateur}}</td>
           <td data-label="Staus">
             <form style="  padding-right: 20px;" (ngSubmit)="ModifierEtat(voir)">
               <select style="width:80px;  height: 25px; margin-top: 3px; margin-bottom: 20px;" name="etat"  [(ngModel)]="voir.etat" >
                 <option value="Sexe">Etat</option>
-                <option *ngFor="let lesEtat of mesEtats"  >{{lesEtat}}</option>
+                <option *ngFor="let lesEtat of mesformaformateur"  >{{lesEtat}}</option>
               </select>
               <button type="submit">Changer</button>
             </form>

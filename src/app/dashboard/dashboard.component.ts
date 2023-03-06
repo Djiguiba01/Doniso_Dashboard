@@ -103,7 +103,6 @@ export class DashboardComponent implements OnInit {
   }
 
   // Actualisation méthode étape 1/3::::::::::::::::::::::::::::::::::::
-
   // Formations en cours:::::::::::::::::
   formationsEncour() {
     this.format.getFormationencours().subscribe((data) => {
@@ -117,8 +116,6 @@ export class DashboardComponent implements OnInit {
       this.formationterminer = data;
     });
   }
-
-
 
   // Méthode Changement d'état::::::::::::::::::::::::::::
   ModifierEtat(encours: any) {

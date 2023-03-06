@@ -13,9 +13,12 @@ import { GestiondemandeComponent } from './gestiondemande/gestiondemande.compone
 import { DetailparticipantComponent } from './detailparticipant/detailparticipant.component';
 import { FormationencoursComponent } from './formationencours/formationencours.component';
 import { ValidationformateurComponent } from './validationformateur/validationformateur.component';
+import { Etreformateur } from './Class/etreformateur';
+import { EtreformateurComponent } from './etreformateur/etreformateur.component';
 
 const routes: Routes = [
   { path: '', component: ConnexionComponent },
+  { path: 'connexion', component: ConnexionComponent },
    { path: 'Dashboard', component: DashboardComponent },
    { path: 'AjoutFormat', component: AjoutformationComponent },
    { path: 'Detailformation', component: DetailformationComponent },
@@ -26,6 +29,8 @@ const routes: Routes = [
    { path: 'formationencours', component: FormationencoursComponent },
    { path: 'validationformateur', component: ValidationformateurComponent },
    { path: 'Menu', component: MenuComponent },
+   { path: 'etreformateur', component: EtreformateurComponent },
+
 
 ]
 

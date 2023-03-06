@@ -30,30 +30,57 @@ export class GestiondemandeComponent implements OnInit {
     ) {}
 
   ngOnInit(): void {
+
+        // Actualisation appel méthode  étape 2/3::::::::::::::::::::::
+        this.demandEncours();//:::::::
+        this.demandAccepter();//:::::::::
+        this.demandNonAccepter();//:::::::::
+
+
     // Voir Tout Etat :::::::::::::::::::::
     this.demand.VoirToutEtat().subscribe((data) => {
       this.mesEtats = data;
     });
 
     // Voir Tout les Demandes Encours :::::::::::::::::::::
-    this.demand.VoirDemandEncours().subscribe((data) => {
-      this.demandencours = data;
-    });
+    // this.demand.VoirDemandEncours().subscribe((data) => {
+    //   this.demandencours = data;
+    // });
 
     // Voir Tout les Demandes Accepter:::::::::::::::::::::
-    this.demand.VoirDemandAccepter().subscribe((data) => {
-      this.demandaccepter = data;
-    });
+    // this.demand.VoirDemandAccepter().subscribe((data) => {
+    //   this.demandaccepter = data;
+    // });
 
     // Voir Tout les Demandes Rejeter:::::::::::::::::::::
-    this.demand.VoirDemandRejeter().subscribe((data) => {
-      this.demandrejeter = data;
-    });
+    // this.demand.VoirDemandRejeter().subscribe((data) => {
+    //   this.demandrejeter = data;
+    // });
 
     // Voir Tout les Demandes :::::::::::::::::::::
     this.demand.getDemand().subscribe((data) => {
       this.demandvoir = data;
       console.log(this.demandvoir);
+    });
+  }
+
+  // Actualisation méthode étape 1/3::::::::::::::::::::::::::::::::::::
+  // Voir Tout les Demandes Encours :::::::::::::::::::::
+  demandEncours(){
+     this.demand.VoirDemandEncours().subscribe((data) => {
+      this.demandencours = data;
+    });
+  }
+  // Voir Tout les Demandes Accepter:::::::::::::::::::::
+  demandAccepter(){
+      this.demand.VoirDemandAccepter().subscribe((data) => {
+        this.demandaccepter = data;
+      });
+  }
+  // Voir Tout les Demandes Rejeter:::::::::::::::::::::
+  demandNonAccepter(){
+    this.demand.VoirDemandRejeter().subscribe((data) => {
+      this.demandrejeter = data;
     });
   }
 
@@ -75,6 +102,10 @@ export class GestiondemandeComponent implements OnInit {
       .postDemandestatus(voir.idDemand, statusformation)
       .subscribe((data) => {
         this.etatparicipant = data;
+             // Actualisation au niveau du button d'envoye étape 3/3:::::::::::::::::::::::
+             this.demandEncours();//:::::::::
+             this.demandAccepter();//:::::::::
+             this.demandNonAccepter();//:::::::::
       });
 
   }

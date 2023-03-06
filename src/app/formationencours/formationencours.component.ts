@@ -13,6 +13,7 @@ export class FormationencoursComponent implements OnInit{
   supFormat: any;
   etatformation:any;
   mesEtats: any;
+  idFormat:any;
 
   constructor(
     private format: FormationService,
@@ -27,6 +28,7 @@ export class FormationencoursComponent implements OnInit{
 
       // Actualisation appel méthode  étape 2/3::::::::::::::::::::::
       this.formationsVenir();//:::::::
+      this.suppression(this.supFormat);//:::::::
 
      // Formations en INITIER:::::::::::::::::
     //  this.format.getFormationavenir().subscribe(data=>{
@@ -61,6 +63,7 @@ export class FormationencoursComponent implements OnInit{
         this.etatformation=data;
         // Actualisation au niveau du button d'envoye étape 3/3:::::::::::::::::::::::
         this.formationsVenir();//:::::::::
+        this.suppression(this.supFormat);//:::::::::
       });
   }
 
