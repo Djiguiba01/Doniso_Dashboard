@@ -46,7 +46,7 @@
         [(ngModel)]="form.nom"
         required
         minlength="3"
-        maxlength="20"
+        maxlength="80"
         #nom="ngModel"
         [ngClass]="{ 'is-invalid': f.submitted && nom.errors }"
         placeholder="Nom complet">
@@ -60,7 +60,7 @@
         [(ngModel)]="form.profession"
         required
         minlength="3"
-        maxlength="20"
+        maxlength="80"
         #profession="ngModel"
         [ngClass]="{ 'is-invalid': f.submitted && profession.errors }"
         placeholder="profession">
@@ -74,7 +74,7 @@
         [(ngModel)]="form.contact"
         required
         minlength="3"
-        maxlength="20"
+        maxlength="25"
         #contact="ngModel"
         [ngClass]="{ 'is-invalid': f.submitted && contact.errors }"
         placeholder="contact">
@@ -104,7 +104,7 @@
           [(ngModel)]="form.sexe"
           required
           minlength="3"
-          maxlength="20"
+          maxlength="25"
           #sexe="ngModel"
           [ngClass]="{ 'is-invalid': f.submitted && sexe.errors }"
           >
@@ -122,7 +122,7 @@
           [(ngModel)]="form.Role"
           required
           minlength="3"
-          maxlength="20"
+          maxlength="50"
           #ERole="ngModel"
           [ngClass]="{ 'is-invalid': f.submitted && ERole.errors }"
           >

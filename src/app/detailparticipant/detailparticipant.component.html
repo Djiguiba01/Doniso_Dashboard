@@ -10,9 +10,9 @@
         <tr>
          <th>No</th>
          <th>Email</th>
-         <th>Quartier</th>
+         <!-- <th>Quartier</th> -->
          <th>Sexe</th>
-         <th>Age</th>
+         <!-- <th>Age</th> -->
          <th>Status</th>
         </tr>
     </thead>
@@ -21,9 +21,9 @@
            <tr *ngFor="let voir of participant |paginate: { itemsPerPage:10, currentPage: p1, id:'pagination1'}, let i =index">
                 <td data-label="S.No">{{voir.idPart}}</td>
                 <td data-label="Name">{{voir.email}}</td>
-                <td data-label="Age">{{voir.nom}}</td>
+                <!-- <td data-label="Age">{{voir.nom}}</td> -->
                 <td data-label="Marks%">{{voir.sexe}}</td>
-                <td data-label="Marks%">70%</td>
+                <!-- <td data-label="Marks%">70%</td> -->
                 <td data-label="Staus">
 
                   <form (ngSubmit)="ModifierEtat(voir)" >

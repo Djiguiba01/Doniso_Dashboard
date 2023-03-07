@@ -44,11 +44,11 @@
                         <!-- :::: -->
                   <div class="col" *ngFor="let voir of formationencours">
                   <div class="card h-100 shadow-sm" >
-                        <img src="C:/Users/bddjiguiba/Desktop/Fin_ODC/Doniso-front-end/src/assets/images/{{voir.image}}" class="card-img-top" alt="...">
+                        <img src="/assets/images/{{voir.image}}" class="card-img-top" alt="...">
                         <div class="card-body">
-                  <div class="clearfix mb-3">
+                  <!-- <div class="clearfix mb-3">
                         <span class="float-start price-hp">{{voir.datedebut}}</span>
-                  </div>
+                  </div> -->
                         <h5 class="card-title">{{voir.titre}}</h5>
                         <div class="text-center my-4">
                               <a href="#" class="btn btn-warning" [routerLink]="['/detailparticipant', voir.idFormat]">Voir+</a>

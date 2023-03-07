@@ -8,7 +8,6 @@
     /* padding: 0 20px 0 20px; */
     margin-top: -1%;
 }
-
 .main{
     display: flex;
     justify-content: center;
@@ -31,7 +30,7 @@
     border-radius: 10px 0 0 10px;
 }
 img{
-    width: 50px;
+    width: 35px;
     position: absolute;
     top: 30px;
     left: 30px;
@@ -57,13 +56,13 @@ i{
     position: relative;
 }
 .input-box{
-    width: 450px;
+    width: 330px;
     box-sizing: border-box;
 }
 .input-box header{
   background-color: fff;
   color: teal;
-    font-weight: 1000;
+    font-weight: 700;
     text-align: center;
     margin-bottom: 45px;
 }
@@ -81,7 +80,7 @@ i{
     border-bottom: 1px solid rgba(0,0,0,0.2);
     outline: none;
     margin-bottom: 20px;
-    color: black;
+    color: #40414a;
 }
 .input-box .input-field label{
     position: absolute;
@@ -97,10 +96,10 @@ i{
 .input-field .input:valid ~ label{
     top: -10px;
     font-size: 13px;
-    color: teal;
+    color: #5d5076;
 }
 .input-field .input:focus, .input-field .input:valid{
-    border-bottom: 1px solid teal;
+    border-bottom: 1px solid #743ae1;
 }
 .submit{
     border: none;
@@ -109,7 +108,6 @@ i{
     background: teal;
     border-radius: 5px;
     font-weight: bold;
-    font-size: 19px;
     transition: .4s;
 }
 .submit:hover{
